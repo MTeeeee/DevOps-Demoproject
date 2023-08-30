@@ -2,9 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,python,node,windows,joe
 
 # CUSTOM OBSIDIAN EXCLUDE
-Planning\.obsidian
-Planning\Day Planners
-
+Planning/.obsidian/
+Planning/Day Planners/
 
 ### Joe ###
 # File backups
