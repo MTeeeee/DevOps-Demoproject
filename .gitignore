@@ -6,11 +6,13 @@ Planning/.obsidian/
 Planning/Day Planners/
 
 # TERRAFORM
+# git rm --cached -r '.\Terraform (Maik)\'
 Terraform (Maik)/.terraform/
 Terraform (Maik)/.terraform.lock.hcl
 Terraform (Maik)/terraform.tfstate
 Terraform (Maik)/terraform.tfstate.backup
 
+# git rm --cached -r '.\Terraform (Mete)\'
 Terraform (Mete)/.terraform/
 Terraform (Mete)/.terraform.lock.hcl
 Terraform (Mete)/terraform.tfstate
