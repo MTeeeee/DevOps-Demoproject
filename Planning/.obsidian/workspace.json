@@ -1,0 +1,157 @@
+{
+  "main": {
+    "id": "ef543735663a7e11",
+    "type": "split",
+    "children": [
+      {
+        "id": "35cbf264bd60a1f7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "968971633860715f",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Abschluss Projekt.canvas",
+                "viewState": {
+                  "x": -51.5,
+                  "y": 548,
+                  "zoom": -1.3695689514259632
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "064e2d922078772e",
+    "type": "split",
+    "children": [
+      {
+        "id": "27e1c5c43ee894c8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f1add318c9df9f1e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d071234aefc19768",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fa34ebdeebbbeb71",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "18ecf63e3a8c4623",
+    "type": "split",
+    "children": [
+      {
+        "id": "05347e591dfdccad",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "90857ed8752ce363",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Abschluss Projekt.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2e5d974e8d2d5b7d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Abschluss Projekt.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4e7d5dedff015f9a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "554f4523597cf699",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Abschluss Projekt.canvas"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "f1add318c9df9f1e",
+  "lastOpenFiles": [
+    "Abschluss Projekt.canvas",
+    "Hello World.md"
+  ]
+}
