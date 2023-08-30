@@ -1,24 +1,21 @@
 {
   "main": {
-    "id": "ef543735663a7e11",
+    "id": "e6b1c9193c926d08",
     "type": "split",
     "children": [
       {
-        "id": "35cbf264bd60a1f7",
+        "id": "9665779d1352125b",
         "type": "tabs",
         "children": [
           {
-            "id": "968971633860715f",
+            "id": "7e806683c4b4fb5c",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Abschluss Projekt.canvas",
-                "viewState": {
-                  "x": -51.5,
-                  "y": 548,
-                  "zoom": -1.3695689514259632
-                }
+                "file": "TS-AWS 22.10/HTML Notes.md",
+                "mode": "source",
+                "source": true
               }
             }
           }
@@ -28,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "064e2d922078772e",
+    "id": "644fe9b77f68d7c0",
     "type": "split",
     "children": [
       {
-        "id": "27e1c5c43ee894c8",
+        "id": "b9fa5846bf1150f8",
         "type": "tabs",
         "children": [
           {
-            "id": "f1add318c9df9f1e",
+            "id": "631dc423bf5e5c25",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -46,7 +43,7 @@
             }
           },
           {
-            "id": "d071234aefc19768",
+            "id": "adf0af90c60abefa",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +58,7 @@
             }
           },
           {
-            "id": "fa34ebdeebbbeb71",
+            "id": "adda53be1622d967",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -75,20 +72,20 @@
     "width": 300
   },
   "right": {
-    "id": "18ecf63e3a8c4623",
+    "id": "8cc40b830f55d8e2",
     "type": "split",
     "children": [
       {
-        "id": "05347e591dfdccad",
+        "id": "079a3254f9dcb655",
         "type": "tabs",
         "children": [
           {
-            "id": "90857ed8752ce363",
+            "id": "8188d8ebe354f2f9",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Abschluss Projekt.canvas",
+                "file": "TS-AWS 22.10/HTML Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,19 +97,19 @@
             }
           },
           {
-            "id": "2e5d974e8d2d5b7d",
+            "id": "05066372cc71dce4",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Abschluss Projekt.canvas",
+                "file": "TS-AWS 22.10/HTML Notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "4e7d5dedff015f9a",
+            "id": "f3aaa367a153f6b2",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -123,13 +120,21 @@
             }
           },
           {
-            "id": "554f4523597cf699",
+            "id": "3e9bbb92e0dd4f26",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Abschluss Projekt.canvas"
+                "file": "TS-AWS 22.10/HTML Notes.md"
               }
+            }
+          },
+          {
+            "id": "3ff4d98c1f8276a2",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
             }
           }
         ]
@@ -141,17 +146,34 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "switcher:Schnellauswahl öffnen": false,
+      "graph:Graphen-Ansicht öffnen": false,
+      "canvas:Neuen Canvas erstellen": false,
+      "daily-notes:Heutige Notiz öffnen": false,
+      "templates:Vorlage einfügen": false,
+      "command-palette:Befehlspalette öffnen": false,
+      "audio-recorder:Audioaufzeichnung starten/stoppen": false,
+      "obsidian-advanced-slides:Show Slide Preview": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "f1add318c9df9f1e",
+  "active": "7e806683c4b4fb5c",
   "lastOpenFiles": [
-    "Abschluss Projekt.canvas",
-    "Hello World.md"
+    "TS-AWS 22.10/Abschluss Projekt.canvas",
+    "TS-AWS 22.10/HTML Notes.md",
+    "Slides/Example Slide.md",
+    "Day Planners/Day Planner-20230830.md",
+    "Pasted image 20230829170948.png",
+    "Slides/Unbenannt.canvas",
+    "Slides",
+    "Day Planners/Day Planner-20230829.md",
+    "Slide 2023.md",
+    "Day Planners",
+    "Excalidraw/Drawing 2023-08-29 16.52.50.excalidraw.md",
+    "Excalidraw/Drawing 2023-08-29 16.50.37.excalidraw.md",
+    "Excalidraw",
+    "TS-AWS 22.10",
+    "Unbenannt.canvas",
+    "Mete.md"
   ]
 }
