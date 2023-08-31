@@ -28,8 +28,7 @@
 		{"type":"text","text":"<center>AWS Workspaces</center>","id":"30179cf535f4e347","x":-304,"y":1467,"width":250,"height":60},
 		{"type":"text","text":"<center>S3</center>\n<center>Logs / Files\n</center>","id":"1046fa941f503fbe","x":12,"y":1467,"width":160,"height":65},
 		{"type":"text","text":"<center>DB</center>","id":"975f5c24d409c90b","x":12,"y":1580,"width":160,"height":68},
-		{"type":"text","text":"<center>Cloud DEV Umgebung für Entwickler</center>","id":"36573d9e62d2a473","x":-79,"y":1320,"width":354,"height":60},
-		{"id":"8c25135fa137d165","x":-23,"y":1760,"width":250,"height":60,"type":"text","text":"Test\n"}
+		{"type":"text","text":"<center>Cloud DEV Umgebung für Entwickler</center>","id":"36573d9e62d2a473","x":-79,"y":1320,"width":354,"height":60}
 	],
 	"edges":[
 		{"id":"f217c4736922860d","fromNode":"ee2aef1a57834ab8","fromSide":"right","toNode":"cb00f6f946665283","toSide":"left"},
