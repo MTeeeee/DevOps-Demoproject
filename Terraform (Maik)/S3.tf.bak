@@ -3,5 +3,7 @@ resource "aws_s3_bucket" "terraform-s3-bucket" {
 
   tags = {
     Name = "S3-Bucket-Terraform-AWS-22.10"
+    Terraform   = "true"
+    Environment = "dev"
   }
 }
