@@ -1,6 +1,7 @@
-resource "aws_security_group" "DevOps-Project-SQ" {
+resource "aws_security_group" "DevOps-Project-SG" {
   name = "DevOps-Project-SQ"
   description = "Allow HTTP/HTTPS and SSH Traffic via Terraform"
+  vpc_id = aws_vpc.DevOps-Project-VPC.id
 
   ingress {
     from_port   = 80
@@ -31,7 +32,7 @@ resource "aws_security_group" "DevOps-Project-SQ" {
   }
 
   tags = {
-    Name = "DevOps-Project-SQ"
+    Name = "DevOps-Project-SG"
     Terraform = "true"
     Environment = "dev"
   }
