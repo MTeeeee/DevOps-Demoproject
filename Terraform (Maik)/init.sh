@@ -2,8 +2,8 @@
 
 sudo su
 
-yum check-update &&
-yum update &&
+yum check-update && 
+yum update && 
 yum install nginx -y
 
 systemctl start nginx.service
@@ -97,7 +97,7 @@ $services = file_get_contents('http://169.254.169.254/latest/meta-data/services/
             <p>Profile: <?php echo $profile; ?></p>
             <p>Public Hostname: <?php echo $public_hostname; ?></p>
             <p>Public IPv4: <?php echo $public_ipv4; ?></p>
-            <p>Public Keys: <?php echo $$public_keys; ?></p>
+            <p>Public Keys: <?php echo $public_keys; ?></p>
             <p>Reservation ID: <?php echo $reservation_id; ?></p>
             <p>Security Groups: <?php echo $security_groups; ?></p>
             <p>Services: <?php echo $services; ?></p>
@@ -110,4 +110,4 @@ $services = file_get_contents('http://169.254.169.254/latest/meta-data/services/
 <!-- AWS Abrufen von Metadaten - Professionell gebastelt von Maik :-) -->
 <!-- https://docs.aws.amazon.com/de_de/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html -->
 
-'> /usr/share/nginx/html/index.html
+' > /usr/share/nginx/html/index.html

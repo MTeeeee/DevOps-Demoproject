@@ -11,9 +11,11 @@ resource "aws_instance" "DevOps-Project-WebServer" {
   user_data                   = file("init.sh")
 
   metadata_options {
+      http_protocol_ipv6          = "disabled"
       http_endpoint               = "enabled"
-      http_put_response_hop_limit = 1
+      http_put_response_hop_limit = 2
       http_tokens                 = "optional"
+      instance_metadata_tags      = "enabled"
   }
 
   tags = {
