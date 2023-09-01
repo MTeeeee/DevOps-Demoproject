@@ -1,17 +1,21 @@
 #!/bin/bash
 
-sudo su
+sudo yum check-update 
+sudo yum update 
+sudo yum install nginx -y
 
-yum check-update && 
-yum update && 
-yum install nginx -y
+sudo yum clean metadata
 
-systemctl start nginx.service
-systemctl enable nginx.service
+sudo yum install php php-cli php-mysqlnd php-pdo php-common php-fpm -y
+sudo yum install php-gd php-mbstring php-xml php-dom php-intl php-simplexml -y
 
-yum install php -y &&
-yum install php-mbstring -y &&
-yum install php-intl -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+sudo systemctl start php-fpm
+sudo systemctl enable php-fpm
+
+sudo rm -r /usr/share/nginx/html/index.html
 
 echo '
 
@@ -37,17 +41,21 @@ $instance_id = file_get_contents('http://169.254.169.254/latest/meta-data/instan
 $instance_life_cycle = file_get_contents('http://169.254.169.254/latest/meta-data/instance-life-cycle');
 $instance_type = file_get_contents('http://169.254.169.254/latest/meta-data/instance-type');
 $mac = file_get_contents('http://169.254.169.254/latest/meta-data/mac');
-$metrics = file_get_contents('http://169.254.169.254/latest/meta-data/metrics/');
-$network = file_get_contents('http://169.254.169.254/latest/meta-data/network/');
-$placement = file_get_contents('http://169.254.169.254/latest/meta-data/placement/');
+$metrics = file_get_contents('http://169.254.169.254/latest/meta-data/metrics');
+$network = file_get_contents('http://169.254.169.254/latest/meta-data/network');
+$placement = file_get_contents('http://169.254.169.254/latest/meta-data/placement');
 $profile = file_get_contents('http://169.254.169.254/latest/meta-data/profile');
 $public_hostname = file_get_contents('http://169.254.169.254/latest/meta-data/public-hostname');
 $public_ipv4 = file_get_contents('http://169.254.169.254/latest/meta-data/public-ipv4');
-$public_keys = file_get_contents('http://169.254.169.254/latest/meta-data/public-keys/');
+$public_keys = file_get_contents('http://169.254.169.254/latest/meta-data/public-keys');
 $reservation_id = file_get_contents('http://169.254.169.254/latest/meta-data/reservation-id');
 $security_groups = file_get_contents('http://169.254.169.254/latest/meta-data/security-groups');
-$services = file_get_contents('http://169.254.169.254/latest/meta-data/services/');
+$services = file_get_contents('http://169.254.169.254/latest/meta-data/services');
 ?>
+
+' | sudo tee /usr/share/nginx/html/metadata.php
+
+echo '
 
 <!DOCTYPE html>
 <html lang="de">
@@ -71,6 +79,7 @@ $services = file_get_contents('http://169.254.169.254/latest/meta-data/services/
 </head>
 
 <body style="background-color:rgb(0, 42, 48);">
+    <?php include 'metadata.php'?>
     <center>
         <h1>EC2 Metadaten für die Maschine mit der IP: <?php echo $localIPv4; ?></h1>
     </center>
@@ -110,4 +119,7 @@ $services = file_get_contents('http://169.254.169.254/latest/meta-data/services/
 <!-- AWS Abrufen von Metadaten - Professionell gebastelt von Maik :-) -->
 <!-- https://docs.aws.amazon.com/de_de/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html -->
 
-' > /usr/share/nginx/html/index.html
+' | sudo tee /usr/share/nginx/html/index.html
+
+
+sudo systemctl restart nginx.service
