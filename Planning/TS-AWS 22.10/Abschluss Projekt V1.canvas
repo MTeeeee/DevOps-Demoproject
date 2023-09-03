@@ -26,11 +26,11 @@
 		{"type":"text","text":"<center>S3</center>\n<center>Logs / Files\n</center>","id":"1046fa941f503fbe","x":12,"y":1467,"width":160,"height":65},
 		{"type":"text","text":"<center>DB</center>","id":"975f5c24d409c90b","x":12,"y":1580,"width":160,"height":68},
 		{"type":"text","text":"<center>Cloud DEV Umgebung für Entwickler</center>","id":"36573d9e62d2a473","x":-79,"y":1320,"width":354,"height":60},
-		{"type":"text","text":"<center>SNS (Bei EC2 Ausfall)</center)","id":"7d4aa2e07e15e4b0","x":-33,"y":908,"width":250,"height":60,"color":"1"},
 		{"type":"text","text":"<center>EC2 Grafana</center>","id":"a0ca0884785b05a3","x":-33,"y":1060,"width":246,"height":60,"color":"1"},
-		{"type":"text","text":"<center>S3</center>\n<center>Logs / Files\n</center>","id":"4163ca8e9dda12be","x":10,"y":980,"width":160,"height":65,"color":"1"},
 		{"type":"text","text":"<center>EC2 </center>\n\n<center>Ansible</center>","id":"a746e1e24b8ac12b","x":800,"y":320,"width":246,"height":100,"color":"2"},
-		{"type":"text","text":"<center>EC2\nAnsible</center>\n<center>(Installiert alles auf die Maschinen)</center>","id":"0eab46356e1ea801","x":843,"y":453,"width":160,"height":135,"color":"2"}
+		{"type":"text","text":"<center>EC2\nAnsible</center>\n<center>(Installiert alles auf die Maschinen)</center>","id":"0eab46356e1ea801","x":843,"y":453,"width":160,"height":135,"color":"2"},
+		{"type":"text","text":"<center>SNS (Bei EC2 Ausfall)</center)","id":"7d4aa2e07e15e4b0","x":-35,"y":971,"width":250,"height":60,"color":"1"},
+		{"type":"text","text":"<center>S3</center>\n<center>Logs / Files\n</center>","id":"4163ca8e9dda12be","x":12,"y":840,"width":168,"height":65,"color":"1"}
 	],
 	"edges":[
 		{"id":"f217c4736922860d","fromNode":"ee2aef1a57834ab8","fromSide":"right","toNode":"cb00f6f946665283","toSide":"left"},
@@ -51,6 +51,7 @@
 		{"id":"7c7002fdf2f88bd9","fromNode":"36573d9e62d2a473","fromSide":"bottom","toNode":"70654a9ffbc1cb11","toSide":"top"},
 		{"id":"a00dc671d78d05e9","fromNode":"1fcd4008e12f59da","fromSide":"left","toNode":"7d4aa2e07e15e4b0","toSide":"right","color":"1"},
 		{"id":"2d729c2c4ee0ecc1","fromNode":"58e7a1cfd4d1daea","fromSide":"right","toNode":"7d4aa2e07e15e4b0","toSide":"left","color":"1"},
-		{"id":"13ca303abf2002f9","fromNode":"a746e1e24b8ac12b","fromSide":"bottom","toNode":"0eab46356e1ea801","toSide":"top"}
+		{"id":"13ca303abf2002f9","fromNode":"a746e1e24b8ac12b","fromSide":"bottom","toNode":"0eab46356e1ea801","toSide":"top"},
+		{"id":"9d52d97d41a16e26","fromNode":"0d9304c09bc27a7d","fromSide":"bottom","toNode":"4163ca8e9dda12be","toSide":"top"}
 	]
 }
