@@ -17,7 +17,7 @@ resource "aws_ecs_task_definition" "task" {
   container_definitions    = <<DEFINITION
   [
     {
-      "name"      : "nginx",
+      "name"      : "${var.app_name}-${var.app_environment}-container",
       "image"     : "nginx:1.23.1",
       "cpu"       : 256,
       "memory"    : 512,
@@ -57,7 +57,7 @@ resource "aws_ecs_service" "service" {
     load_balancer {
     target_group_arn = aws_lb_target_group.target_group.arn
     container_name   = "${var.app_name}-${var.app_environment}-container"
-    container_port   = 8080
+    container_port   = 80
   }
   depends_on = [aws_lb_listener.listener]
 }
