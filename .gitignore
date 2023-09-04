@@ -13,6 +13,14 @@ Terraform (Maik)/terraform.tfstate
 Terraform (Maik)/terraform.tfstate.backup
 Terraform (Maik)/variable.auto.tfvars
 
+*Terraform (Maik - DEV)/*
+
+Terraform (Maik - DEV)/.terraform/
+Terraform (Maik - DEV)/.terraform.lock.hcl
+Terraform (Maik - DEV)/terraform.tfstate
+Terraform (Maik - DEV)/terraform.tfstate.backup
+Terraform (Maik - DEV)/variable.auto.tfvars
+
 # git rm --cached -r '.\Terraform (Mete)\'
 Terraform (Mete)/basic/.terraform/
 Terraform (Mete)/basic/.terraform.lock.hcl
