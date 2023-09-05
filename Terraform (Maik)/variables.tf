@@ -1,16 +1,17 @@
 # AWS Login Variables
 variable "aws_region" {
   type = string
+  default = "eu-central-1"
 }
 
-variable "aws_access_key" {
+variable "aws_access_key_id" {
   type = string
 }
 
-variable "aws_secret_key" {
+variable "aws_secret_access_key" {
   type = string
 }
 
-variable "aws_token" {
+variable "aws_session_token" {
   type = string
 }
