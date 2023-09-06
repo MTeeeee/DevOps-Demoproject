@@ -1,4 +1,6 @@
 resource "aws_route_table" "DevOps-Project-Public-RT" {
+#resource "aws_default_route_table" "DevOps-Project-Public-RT" {
+  #default_route_table_id = aws_vpc.DevOps-Project-VPC.id
   vpc_id = aws_vpc.DevOps-Project-VPC.id
   #vpc_id = aws_vpc.DevOps-Project-VPC.id
 
@@ -20,14 +22,17 @@ resource "aws_route_table" "DevOps-Project-Public-RT" {
 resource "aws_route_table_association" "PublicSubnetRouteTableAssociation1" {
   subnet_id      = aws_subnet.DevOps-Project-SubNet-1.id
   route_table_id = aws_route_table.DevOps-Project-Public-RT.id
+  #route_table_id = aws_default_route_table.DevOps-Project-Public-RT.id
 }
 
 resource "aws_route_table_association" "PublicSubnetRouteTableAssociation2" {
   subnet_id      = aws_subnet.DevOps-Project-SubNet-2.id
   route_table_id = aws_route_table.DevOps-Project-Public-RT.id
+  #route_table_id = aws_default_route_table.DevOps-Project-Public-RT.id
 }
 
 resource "aws_route_table_association" "PublicSubnetRouteTableAssociation3" {
   subnet_id      = aws_subnet.DevOps-Project-SubNet-3.id
   route_table_id = aws_route_table.DevOps-Project-Public-RT.id
+  #route_table_id = aws_default_route_table.DevOps-Project-Public-RT.id
 }
