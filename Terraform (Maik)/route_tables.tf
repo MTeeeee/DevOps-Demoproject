@@ -1,13 +1,11 @@
+# Create Routing Table for DevOps Project
+
 resource "aws_route_table" "DevOps-Project-Public-RT" {
-#resource "aws_default_route_table" "DevOps-Project-Public-RT" {
-  #default_route_table_id = aws_vpc.DevOps-Project-VPC.id
   vpc_id = aws_vpc.DevOps-Project-VPC.id
-  #vpc_id = aws_vpc.DevOps-Project-VPC.id
 
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.DevOps-Project-IGW.id
-    #gateway_id = "${aws_internet_gateway.DevOps-Project-IGW.id}"
   }
 
   tags = {

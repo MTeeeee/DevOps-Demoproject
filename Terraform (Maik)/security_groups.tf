@@ -1,3 +1,5 @@
+# Create Security Group for DevOps Project
+
 resource "aws_security_group" "DevOps-Project-SG" {
   name = "DevOps-Project-SQ"
   description = "Allow HTTP/HTTPS and SSH Traffic via Terraform"

@@ -1,4 +1,5 @@
-# Create Aplication Load Balancer
+# Create Aplication Load Balancer for DevOps Project
+
 resource "aws_alb" "DevOps-Project-Public-ALB" {
   #internal = false
   load_balancer_type = "application"
@@ -24,18 +25,3 @@ resource "aws_lb_listener" "DevOps-Project-Public-Listener" {
     type             = "forward"
   }
 }
-
-# # Attaching the required EC2 Instances
-# resource "aws_lb_target_group_attachment" "DevOps-Project-Public-TG-EC2-Attachment" {
-
-#   #count = length(aws_autoscaling_group.example.names)
-#   #count = length(aws_autoscaling_group.DevOps-Project-ASG-WebServer-.names)
-
-#   #depends_on = [aws_autoscaling_group.DevOps-Project-ASG-WebServer-]
-#   target_group_arn = aws_lb_target_group.DevOps-Project-Public-TG.arn
-
-#   #target_id        = aws_autoscaling_group.example.names[count.index]
-
-#   port             = "80"
-# }
-

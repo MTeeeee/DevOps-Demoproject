@@ -1,3 +1,5 @@
+# Create Internet Gateway for DevOps Project
+
 resource "aws_internet_gateway" "DevOps-Project-IGW" {
   vpc_id = aws_vpc.DevOps-Project-VPC.id
 

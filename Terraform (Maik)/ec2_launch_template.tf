@@ -1,20 +1,21 @@
-# EC2 Launch Template
+# Create EC2 Launch Template for DevOps Project
+# https://github.com/hashicorp/terraform-provider-aws/issues/19911
+
 resource "aws_launch_template" "DevOps-Project-WebServer-Launch-Template" {
   name          = "DevOps-Project-WebServer-Launch-Template"
   image_id      = "ami-0766f68f0b06ab145"
   instance_type = "t2.micro"
   key_name      = "DevOps-Project-Key"
-
-  # vpc_security_group_ids = ["${aws_security_group.DevOps-Project-SG.id}"]
-
+  
   user_data = filebase64("init.sh")
 
-  # block_device_mappings {
-  #   device_name = "/dev/sda1"
-  #   ebs {
-  #     volume_size = 8
-  #   }
-  # }
+  block_device_mappings {
+    device_name = "/dev/sda1"
+    ebs {
+      volume_size = 15
+      volume_type = "gp3"
+    }
+  }
 
   network_interfaces {
     associate_public_ip_address = true

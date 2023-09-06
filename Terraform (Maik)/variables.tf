@@ -1,4 +1,5 @@
-# AWS Login Variables
+# AWS Login Variables for DevOps Project
+
 variable "aws_region" {
   type = string
   default = "eu-central-1"

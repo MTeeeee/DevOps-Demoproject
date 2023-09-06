@@ -1,3 +1,5 @@
+# Create Subnets for DevOps Project
+
 # Public Subnet 1
 resource "aws_subnet" "DevOps-Project-SubNet-1" {
   vpc_id                  = aws_vpc.DevOps-Project-VPC.id

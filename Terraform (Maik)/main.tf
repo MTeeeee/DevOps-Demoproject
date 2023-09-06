@@ -1,5 +1,6 @@
 # Terraform Reason Configuration
 # https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+
 terraform {
   required_providers {
     aws = {
