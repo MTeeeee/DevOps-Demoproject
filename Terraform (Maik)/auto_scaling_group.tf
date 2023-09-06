@@ -4,13 +4,14 @@
 
 resource "aws_autoscaling_group" "DevOps-Project-ASG-WebServer" {
   #name_prefix      = "DevOps-Project-ASG-WebServer-"
-  name              = "DevOps-Project-ASG-WebServer"
-  desired_capacity  = 1
-  max_size          = 3
-  min_size          = 1
-  force_delete      = true
-  target_group_arns = ["${aws_lb_target_group.DevOps-Project-Public-TG.arn}"]
-  health_check_type = "EC2"
+  name                      = "DevOps-Project-ASG-WebServer"
+  desired_capacity          = 1
+  max_size                  = 3
+  min_size                  = 1
+  force_delete              = true
+  target_group_arns         = ["${aws_lb_target_group.DevOps-Project-Public-TG.arn}"]
+  health_check_grace_period = 300
+  health_check_type         = "EC2"
 
   launch_template {
     id      = aws_launch_template.DevOps-Project-WebServer-Launch-Template.id
@@ -18,6 +19,10 @@ resource "aws_autoscaling_group" "DevOps-Project-ASG-WebServer" {
   }
 
   vpc_zone_identifier = ["${aws_subnet.DevOps-Project-SubNet-1.id}", "${aws_subnet.DevOps-Project-SubNet-2.id}", "${aws_subnet.DevOps-Project-SubNet-3.id}"]
+
+  lifecycle {
+    create_before_destroy = true
+  }
 
   tag {
     key                 = "Name"

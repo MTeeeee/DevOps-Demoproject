@@ -10,10 +10,11 @@ resource "aws_launch_template" "DevOps-Project-WebServer-Launch-Template" {
   user_data = filebase64("init.sh")
 
   block_device_mappings {
-    device_name = "/dev/sda1"
+    device_name = "/dev/xvda"
     ebs {
       volume_size = 15
       volume_type = "gp3"
+      iops        = 3000
     }
   }
 
