@@ -5,9 +5,9 @@
 resource "aws_autoscaling_group" "DevOps-Project-ASG-WebServer" {
   #name_prefix      = "DevOps-Project-ASG-WebServer-"
   name                      = "DevOps-Project-ASG-WebServer"
-  desired_capacity          = 1
-  max_size                  = 3
-  min_size                  = 1
+  desired_capacity          = 2 
+  max_size                  = 5
+  min_size                  = 2
   force_delete              = true
   target_group_arns         = ["${aws_lb_target_group.DevOps-Project-Public-TG.arn}"]
   health_check_grace_period = 300
