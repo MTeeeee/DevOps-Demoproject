@@ -6,7 +6,11 @@ resource "aws_launch_template" "DevOps-Project-WebServer-Launch-Template" {
   image_id      = "ami-0766f68f0b06ab145"
   instance_type = "t2.micro"
   key_name      = "DevOps-Project-Key"
-  
+
+  iam_instance_profile {
+    name = aws_iam_instance_profile.EC2toS3-Profile.name
+  }
+
   user_data = filebase64("init.sh")
 
   block_device_mappings {
