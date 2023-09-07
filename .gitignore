@@ -34,6 +34,18 @@ Terraform (Mete)/ecs/terraform.tfstate
 Terraform (Mete)/ecs/terraform.tfstate.backup
 Terraform (Mete)/ecs/variable.auto.tfvars
 
+Terraform (Mete)/eks/.terraform/
+Terraform (Mete)/eks/.terraform.lock.hcl
+Terraform (Mete)/eks/terraform.tfstate
+Terraform (Mete)/eks/terraform.tfstate.backup
+Terraform (Mete)/eks/variable.auto.tfvars
+
+Terraform (Mete)/Sandbox/.terraform/
+Terraform (Mete)/Sandbox/.terraform.lock.hcl
+Terraform (Mete)/Sandbox/terraform.tfstate
+Terraform (Mete)/Sandbox/terraform.tfstate.backup
+Terraform (Mete)/Sandbox/variable.auto.tfvars
+
 
 ### Joe ###
 # File backups
