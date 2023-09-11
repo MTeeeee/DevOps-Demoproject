@@ -7,6 +7,7 @@ Planning/Day Planners/
 
 # TERRAFORM
 # git rm --cached -r '.\Terraform (Maik)\'
+Terraform (Maik)/.Notes.txt
 Terraform (Maik)/.terraform/
 Terraform (Maik)/.terraform.lock.hcl
 Terraform (Maik)/terraform.tfstate
