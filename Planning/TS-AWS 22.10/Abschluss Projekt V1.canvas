@@ -3,8 +3,6 @@
 		{"type":"text","text":"<center>AWS Account</center>","id":"828ed95d35efc746","x":-502,"y":160,"width":1199,"height":55,"color":"3"},
 		{"type":"text","text":"<center>Terraform -  Script das jeden Tag um 6:00Uhr die Infrastruktur hochfährt</center>","id":"cb00f6f946665283","x":-502,"y":320,"width":1199,"height":60,"color":"4"},
 		{"type":"text","text":"<center>GitHub CI/CD</center>","id":"ee2aef1a57834ab8","x":-800,"y":320,"width":250,"height":60,"color":"4"},
-		{"type":"text","text":"<center>EC2</center>\n<center>NGINX - Website</center>\n<center>Let´s Encrypt</center>","id":"1fcd4008e12f59da","x":451,"y":943,"width":246,"height":115,"color":"4"},
-		{"type":"text","text":"<center>EC2 </center>\n<center>NGINX - Website</center>\n<center>Let´s Encrypt</center>","id":"58e7a1cfd4d1daea","x":-502,"y":943,"width":246,"height":115,"color":"4"},
 		{"type":"text","text":"<center>AWS Projekt</center>","id":"d8020cb02eb64afa","x":-502,"y":80,"width":1199,"height":80,"color":"3"},
 		{"type":"text","text":"<center>ELB</center>","id":"0eda9eec37f572fd","x":-156,"y":420,"width":508,"height":60,"color":"4"},
 		{"type":"text","text":"<center>ASG</center>","id":"0d9304c09bc27a7d","x":-156,"y":520,"width":508,"height":60,"color":"4"},
@@ -19,17 +17,18 @@
 		{"type":"text","text":"Prometheus","id":"38244412bc5244c7","x":200,"y":-225,"width":250,"height":60},
 		{"type":"text","text":"Terraform","id":"12db2a02cc874b01","x":-502,"y":-300,"width":200,"height":60},
 		{"type":"text","text":"TDD","id":"f9abcfb1972798a9","x":-285,"y":-300,"width":119,"height":60},
-		{"type":"text","text":"Button startet neue DEV Umgebung auf AWS mit VSCODE IDE im Browser","id":"cef0e3a3a4d3a4ea","x":-502,"y":1100,"width":246,"height":140,"color":"4"},
-		{"type":"text","text":"Button startet neue DEV Umgebung auf AWS mit VSCODE IDE im Browser","id":"74fc75e1b21ea1ab","x":451,"y":1100,"width":246,"height":140,"color":"4"},
 		{"type":"text","text":"<center>AppStream 2.0</\ncenter>","id":"70654a9ffbc1cb11","x":227,"y":1467,"width":250,"height":60},
 		{"type":"text","text":"<center>AWS Workspaces</center>","id":"30179cf535f4e347","x":-304,"y":1467,"width":250,"height":60},
 		{"type":"text","text":"<center>S3</center>\n<center>Logs / Files\n</center>","id":"1046fa941f503fbe","x":12,"y":1467,"width":160,"height":65},
-		{"type":"text","text":"<center>DB</center>","id":"975f5c24d409c90b","x":12,"y":1580,"width":160,"height":68},
 		{"type":"text","text":"<center>Cloud DEV Umgebung für Entwickler</center>","id":"36573d9e62d2a473","x":-79,"y":1320,"width":354,"height":60},
 		{"type":"text","text":"<center>EC2 </center>\n\n<center>Ansible</center>","id":"a746e1e24b8ac12b","x":800,"y":320,"width":246,"height":100,"color":"2"},
 		{"type":"text","text":"<center>EC2\nAnsible</center>\n<center>(Installiert alles auf die Maschinen)</center>","id":"0eab46356e1ea801","x":843,"y":453,"width":160,"height":135,"color":"2"},
-		{"type":"text","text":"<center>EC2 Grafana</center>","id":"a0ca0884785b05a3","x":-27,"y":1001,"width":246,"height":60,"color":"1"},
-		{"type":"text","text":"<center>S3</center>\n<center>Logs / Files\n</center>","id":"4163ca8e9dda12be","x":12,"y":911,"width":168,"height":65,"color":"1"}
+		{"type":"text","text":"<center>EC2 </center>\n<center>NGINX - Website</center>\n<center>Let´s Encrypt</center>","id":"58e7a1cfd4d1daea","x":-364,"y":740,"width":246,"height":115,"color":"4"},
+		{"type":"text","text":"<center>EC2</center>\n<center>NGINX - Website</center>\n<center>Let´s Encrypt</center>","id":"1fcd4008e12f59da","x":280,"y":740,"width":246,"height":115,"color":"4"},
+		{"type":"text","text":"<center>S3</center>\n<center>Logs / Files\n</center>","id":"4163ca8e9dda12be","x":14,"y":708,"width":168,"height":65,"color":"4"},
+		{"type":"text","text":"Button startet neue DEV Umgebung auf AWS mit VSCODE IDE im Browser","id":"cef0e3a3a4d3a4ea","x":-364,"y":940,"width":246,"height":140,"color":"4"},
+		{"type":"text","text":"Button startet neue DEV Umgebung auf AWS mit VSCODE IDE im Browser","id":"74fc75e1b21ea1ab","x":280,"y":940,"width":246,"height":140,"color":"4"},
+		{"type":"text","text":"<center>DB</center>","id":"975f5c24d409c90b","x":14,"y":798,"width":172,"height":68}
 	],
 	"edges":[
 		{"id":"f217c4736922860d","fromNode":"ee2aef1a57834ab8","fromSide":"right","toNode":"cb00f6f946665283","toSide":"left"},
@@ -37,11 +36,9 @@
 		{"id":"4a238352e536f66f","fromNode":"0eda9eec37f572fd","fromSide":"bottom","toNode":"0d9304c09bc27a7d","toSide":"top","color":"4"},
 		{"id":"77c05e990d8bbb06","fromNode":"0d9304c09bc27a7d","fromSide":"bottom","toNode":"58e7a1cfd4d1daea","toSide":"top","color":"4"},
 		{"id":"59b024c5ac8a6e90","fromNode":"0d9304c09bc27a7d","fromSide":"bottom","toNode":"1fcd4008e12f59da","toSide":"top","color":"4"},
-		{"id":"d1403811a2ab87ac","fromNode":"58e7a1cfd4d1daea","fromSide":"right","toNode":"4163ca8e9dda12be","toSide":"left","color":"1"},
-		{"id":"f7d1a32b6607b15e","fromNode":"1fcd4008e12f59da","fromSide":"left","toNode":"4163ca8e9dda12be","toSide":"right","color":"1"},
+		{"id":"d1403811a2ab87ac","fromNode":"58e7a1cfd4d1daea","fromSide":"right","toNode":"4163ca8e9dda12be","toSide":"left","color":"4"},
+		{"id":"f7d1a32b6607b15e","fromNode":"1fcd4008e12f59da","fromSide":"left","toNode":"4163ca8e9dda12be","toSide":"right","color":"4"},
 		{"id":"99de2a734d9bd840","fromNode":"828ed95d35efc746","fromSide":"bottom","toNode":"cb00f6f946665283","toSide":"top","color":"3"},
-		{"id":"51efaed207dc4b9b","fromNode":"1fcd4008e12f59da","fromSide":"left","toNode":"a0ca0884785b05a3","toSide":"right","color":"1"},
-		{"id":"52573f151fe952f2","fromNode":"58e7a1cfd4d1daea","fromSide":"right","toNode":"a0ca0884785b05a3","toSide":"left","color":"1"},
 		{"id":"9b1a3de1feff9c03","fromNode":"58e7a1cfd4d1daea","fromSide":"bottom","toNode":"cef0e3a3a4d3a4ea","toSide":"top"},
 		{"id":"5d5b5d1014831930","fromNode":"1fcd4008e12f59da","fromSide":"bottom","toNode":"74fc75e1b21ea1ab","toSide":"top"},
 		{"id":"780ae9b166f519c5","fromNode":"cef0e3a3a4d3a4ea","fromSide":"right","toNode":"36573d9e62d2a473","toSide":"top","color":"4"},
@@ -49,6 +46,8 @@
 		{"id":"752ca38437b9fa98","fromNode":"36573d9e62d2a473","fromSide":"bottom","toNode":"30179cf535f4e347","toSide":"top"},
 		{"id":"7c7002fdf2f88bd9","fromNode":"36573d9e62d2a473","fromSide":"bottom","toNode":"70654a9ffbc1cb11","toSide":"top"},
 		{"id":"13ca303abf2002f9","fromNode":"a746e1e24b8ac12b","fromSide":"bottom","toNode":"0eab46356e1ea801","toSide":"top"},
-		{"id":"9d52d97d41a16e26","fromNode":"0d9304c09bc27a7d","fromSide":"bottom","toNode":"4163ca8e9dda12be","toSide":"top"}
+		{"id":"9d52d97d41a16e26","fromNode":"0d9304c09bc27a7d","fromSide":"bottom","toNode":"4163ca8e9dda12be","toSide":"top"},
+		{"id":"b26afd6ff9f0c4b7","fromNode":"1fcd4008e12f59da","fromSide":"left","toNode":"975f5c24d409c90b","toSide":"right"},
+		{"id":"ecf308809cc6638e","fromNode":"58e7a1cfd4d1daea","fromSide":"right","toNode":"975f5c24d409c90b","toSide":"left"}
 	]
 }

@@ -19,22 +19,42 @@ resource "aws_iam_role" "DevOps-Project-IAM-ROLE" {
 resource "aws_iam_policy" "DevOps-Project-IAM-POLICY" {
   name        = "DevOps-Project-IAM-POLICY"
   path        = "/"
-  description = "Example policy for writing to S3"
+  description = "Policy for LIST/GET/PUT on S3 - LIST/GET/PUT Cloudwatch Metrics - Allow Reading Tags from Instances and Regions from EC2"
 
   policy = jsonencode({
     Version = "2012-10-17",
-    Statement = [{
-      Action = [
-        "s3:PutObject",
-        "s3:GetObject",
-        "s3:ListBucket"
-      ],
-      Effect = "Allow",
-      Resource = [
-        "arn:aws:s3:::s3-bucket-aws-terraform",
-        "arn:aws:s3:::s3-bucket-aws-terraform/*"
-      ]
-    }]
+    Statement = [
+      {
+        Action = [
+          "s3:PutObject",
+          "s3:GetObject",
+          "s3:ListBucket"
+        ],
+        Effect = "Allow",
+        Resource = [
+          "arn:aws:s3:::s3-bucket-aws-terraform",
+          "arn:aws:s3:::s3-bucket-aws-terraform/*"
+        ]
+      },
+      {
+        Action = [
+          "cloudwatch:PutMetricData",
+          "cloudwatch:GetMetricStatistics",
+          "cloudwatch:ListMetrics"
+        ],
+        Effect   = "Allow",
+        Resource = "*"
+      },
+      {
+        Action = [
+          "ec2:DescribeTags",
+          "ec2:DescribeInstances",
+          "ec2:DescribeRegions"
+        ],
+        Effect   = "Allow",
+        Resource = "*"
+      }
+    ]
   })
 }
 
