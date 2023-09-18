@@ -6,6 +6,12 @@ variable "aws_region" {
 }
 
 # keys to the castle variable
+
+variable "aws_user_id" {
+  type = string
+  sensitive = true
+}
+
 variable "aws_access_key" {
   type      = string
   sensitive = true

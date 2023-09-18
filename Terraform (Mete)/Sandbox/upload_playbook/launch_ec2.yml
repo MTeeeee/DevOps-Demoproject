@@ -1,0 +1,22 @@
+---
+- name: create ec2
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  tags: provisioning
+
+  vars_files:
+    - launch_ec2_vars
+
+  tasks:
+    - name: provisioning 
+      ec2:
+        key_name: demo-key-1
+        region: eu-central-1
+        instance_type: t2.micro
+        image: ami-06fd5f7cfe0604468
+        wait: yes
+        group: default
+        count: 1
+        vpc_subnet_id: subnet-092740118d64a759f
+        assign_public_ip: yes
