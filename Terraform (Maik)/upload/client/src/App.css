@@ -1,0 +1,160 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #f0f0f0; */
+  background-color: #191716;
+  /* color: antiquewhite; */
+}
+
+.login-container {
+  background-color: antiquewhite;
+  padding: 60px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: monospace;
+  font-size: 35px;
+}
+
+.login-container form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.login-container form div label {
+  margin-bottom: 5px;
+}
+
+.login-container form div button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px 0;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+.login-container form div button:first-of-type {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.login-container form div button:last-of-type {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.login-container div {
+  text-align: center;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+.input-label {
+  margin-bottom: 5px;
+}
+
+.login-container form div input {
+  width: 100%; /* Stellt sicher, dass die Eingabe die volle Breite des Containers einnimmt */
+  max-width: 250px; /* Legt eine maximale Breite fest, um zu verhindern, dass das Feld zu breit wird */
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-family: monospace;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  font-size: 18px;
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  font-size: 18px;
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.logout-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logout-button {
+  background-color: red; /* Wählen Sie eine geeignete Hintergrundfarbe */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login-button {
+  background-color: #007bff; /* Wählen Sie eine geeignete Hintergrundfarbe */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.register-button {
+  background-color: #6c757d; /* Wählen Sie eine geeignete Hintergrundfarbe */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.button-custom {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px 3px;
+  cursor: pointer;
+  font-family: monospace;
+  height: 40px;
+  width: 180px;
+}

@@ -51,9 +51,9 @@ resource "aws_autoscaling_policy" "DevOps-Project-ASG-Policy-STOP" {
 }
 
 # Create AWS Cloudwatch Metrics Alarme
-# Alarm 1: CPU Utilization
-resource "aws_cloudwatch_metric_alarm" "DevOps-Project-CW-Metric-Alarm-CPU" {
-  alarm_name          = "DevOps-Project-CW-Metric-Alarm-CPU"
+# Alarm 1: CPU Utilization HIGH (Over 80%)
+resource "aws_cloudwatch_metric_alarm" "DevOps-Project-CW-Metric-Alarm-CPU-HIGH" {
+  alarm_name          = "DevOps-Project-CW-Metric-Alarm-CPU-HIGH"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = 1
   metric_name         = "CPUUtilization"
@@ -63,7 +63,25 @@ resource "aws_cloudwatch_metric_alarm" "DevOps-Project-CW-Metric-Alarm-CPU" {
   threshold           = 80
   alarm_description   = "CPU Utilization is greater than or equal to 80%"
 
-  alarm_actions = [aws_autoscaling_policy.DevOps-Project-ASG-Policy-START.arn, aws_autoscaling_policy.DevOps-Project-ASG-Policy-STOP.arn]
+  alarm_actions = [aws_autoscaling_policy.DevOps-Project-ASG-Policy-START.arn]
+  dimensions = {
+    AutoScalingGroupName = aws_autoscaling_group.DevOps-Project-ASG-WebServer.name
+  }
+}
+
+# Alarm 2: CPU Utilization NORMAL (Under 80%)
+resource "aws_cloudwatch_metric_alarm" "DevOps-Project-CW-Metric-Alarm-CPU-LOW" {
+  alarm_name          = "DevOps-Project-CW-Metric-Alarm-CPU-LOW"
+  comparison_operator = "LessThanThreshold"
+  evaluation_periods  = 3
+  metric_name         = "CPUUtilization"
+  namespace           = "AWS/EC2"
+  period              = 300
+  statistic           = "Average"
+  threshold           = 5
+  alarm_description   = "CPU Utilization is less than 80%"
+
+  alarm_actions = [aws_autoscaling_policy.DevOps-Project-ASG-Policy-STOP.arn]
   dimensions = {
     AutoScalingGroupName = aws_autoscaling_group.DevOps-Project-ASG-WebServer.name
   }

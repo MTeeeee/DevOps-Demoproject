@@ -30,6 +30,22 @@ resource "aws_security_group" "DevOps-Project-SG" {
   }
 
   ingress {
+    description = "Allow PostgreSQL Port 5432"
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+    ingress {
+    description = "Allow Backend Port 3001"
+    from_port   = 3001
+    to_port     = 3001
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
     description = "Allow ICMP (Ping)"
     from_port   = -1
     to_port     = -1
