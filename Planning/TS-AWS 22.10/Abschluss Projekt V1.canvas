@@ -23,8 +23,8 @@
 		{"type":"text","text":"<center>Control Node</center>","id":"e81cc881702cd14e","x":-502,"y":440,"width":157,"height":60},
 		{"type":"text","text":"<center>PostgreSQL Server</center>","id":"6183b4a35067110d","x":-327,"y":440,"width":171,"height":60,"color":"4"},
 		{"id":"9e53dadbab69458e","type":"text","text":"<center>SSH to Ansible</center>","x":-79,"y":1540,"width":250,"height":60},
-		{"id":"0291f852e7322870","type":"text","text":"<center>Trigger Start EC2 Instance (Webserver & Datenbank)</center>","x":-548,"y":945,"width":250,"height":115},
-		{"id":"94964118ffab976d","type":"text","text":"<center>RETURN GitHub REPO URL / Timer / URL des WebServers & DB</center>","x":-548,"y":1100,"width":250,"height":110}
+		{"id":"0291f852e7322870","type":"text","text":"<center>Trigger Start EC2 Instance (Webserver & Datenbank)</center>","x":-548,"y":840,"width":250,"height":115},
+		{"id":"94964118ffab976d","type":"text","text":"<center>RETURN GitHub REPO URL / Timer / URL des WebServers & DB</center>","x":-548,"y":995,"width":250,"height":110}
 	],
 	"edges":[
 		{"id":"4a238352e536f66f","fromNode":"0eda9eec37f572fd","fromSide":"bottom","toNode":"0d9304c09bc27a7d","toSide":"top","color":"4"},
