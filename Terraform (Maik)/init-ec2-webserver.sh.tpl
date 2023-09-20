@@ -88,7 +88,7 @@ sudo yum install stress -y
 # stress --cpu $(nproc) --timeout 900s
 
 # Kopiert die Dateien der WebSite in den richtigen Ordner
-sleep 400
+sleep 460
 sudo aws s3 cp s3://s3-bucket-aws-terraform-frontend/frontend_files/ /usr/share/nginx/html/ --recursive
 
 # Finished

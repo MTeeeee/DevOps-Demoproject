@@ -1,18 +1,18 @@
 # Create EC2 Launch Template for DevOps Project
 resource "aws_launch_template" "DevOps-Project-WebServer-Launch-Template" {
   name          = "DevOps-Project-WebServer-Launch-Template"
-  image_id      = "ami-0766f68f0b06ab145"
+  image_id      = "ami-0b9094fa2b07038b8"
   instance_type = "t2.micro"
   key_name      = "DevOps-Project-Key"
 
   iam_instance_profile {
-    name = aws_iam_instance_profile.EC2toS3-Profile.name
+    name = aws_iam_instance_profile.ec2_iam_instance_profile.name
   }
 
   #depends_on = [aws_instance.DevOps-Project-EC2-PostgreSQL] # <--BITTE BEACHTEN / EVTL LÖSCHEN BEI PROBLEMEN
   #depends_on = [aws_instance.DevOps-Project-EC2-Backend] # <--BITTE BEACHTEN / EVTL LÖSCHEN BEI PROBLEMEN
   #user_data  = filebase64("init-ec2-webserver.sh")
-  user_data  = base64encode(templatefile("init-ec2-webserver.sh.tpl", { ip_address_backend = aws_instance.DevOps-Project-EC2-Backend.public_ip }))
+  user_data = base64encode(templatefile("init-ec2-webserver.sh.tpl", { ip_address_backend = aws_instance.DevOps-Project-EC2-Backend.public_ip }))
 
   block_device_mappings {
     device_name = "/dev/xvda"
@@ -64,10 +64,10 @@ resource "aws_network_interface" "DevOps-Project-EC2-PostgreSQL" {
 
 # Create EC2 Instance DevOps-Project-EC2-PostgreSQL
 resource "aws_instance" "DevOps-Project-EC2-PostgreSQL" {
-  ami                  = "ami-09cb21a1e29bcebf0"
+  ami                  = "ami-0b9094fa2b07038b8"
   instance_type        = "t2.micro"
   key_name             = "DevOps-Project-Key"
-  iam_instance_profile = aws_iam_instance_profile.EC2toS3-Profile.name
+  iam_instance_profile = aws_iam_instance_profile.ec2_iam_instance_profile.name
 
   user_data = filebase64("init-ec2-postgresql.sh")
 
@@ -112,13 +112,13 @@ resource "aws_network_interface" "DevOps-Project-EC2-Backend" {
 
 # Create EC2 Instance for Backend
 resource "aws_instance" "DevOps-Project-EC2-Backend" {
-  ami                  = "ami-09cb21a1e29bcebf0"
+  ami                  = "ami-0b9094fa2b07038b8"
   instance_type        = "t2.micro"
   key_name             = "DevOps-Project-Key"
-  iam_instance_profile = aws_iam_instance_profile.EC2toS3-Profile.name
+  iam_instance_profile = aws_iam_instance_profile.ec2_iam_instance_profile.name
 
   #depends_on = [aws_instance.DevOps-Project-EC2-PostgreSQL]
-  user_data = base64encode(templatefile("init-ec2-backend.sh.tpl", { ip_address_postgresql = aws_instance.DevOps-Project-EC2-PostgreSQL.public_ip }))
+  user_data = base64encode(templatefile("init-ec2-backend.sh.tpl", { ip_address_postgresql = aws_instance.DevOps-Project-EC2-PostgreSQL.public_ip, API_GATEWAY_URL = "https://${aws_api_gateway_rest_api.DevOps-Project-REST-API.id}.execute-api.${var.aws_region}.amazonaws.com/dev/DevOps-Project-API-RESOURCE" }))
 
   root_block_device {
     volume_size = 15
@@ -148,24 +148,27 @@ resource "aws_instance" "DevOps-Project-EC2-Backend" {
   }
 
   provisioner "file" {
-    source = "./upload/"
+    source      = "./upload/"
     destination = "/home/ec2-user/"
   }
 
   connection {
-    type = "ssh"
-    user = "ec2-user"
+    type        = "ssh"
+    user        = "ec2-user"
     private_key = file(local_file.DevOps-Project-Key.filename)
-    host = self.public_ip
+    host        = self.public_ip
   }
 }
 
 resource "local_file" "private_key" {
   filename = "./keys/DevOps-Project-Key.pem"
-  content = tls_private_key.RSA.private_key_pem
+  content  = tls_private_key.RSA.private_key_pem
 }
 
 # Output: Shows the Public IP from Backend as Terminal Output
 output "backend_ip" {
   value = aws_instance.DevOps-Project-EC2-Backend.public_ip
 }
+
+###############################################
+

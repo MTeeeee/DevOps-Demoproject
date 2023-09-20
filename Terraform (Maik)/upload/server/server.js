@@ -6,7 +6,7 @@ const app = express();
 const port = 3001;
 const ip = require('./ip_from_postgres'); // UNBEDINGT PRÜFEN DAS DIE RICHTIGE IP GEHOLT WIRD
 
-console.log(ip)
+// console.log(ip)
 
 // PostgreSQL-Datenbankverbindung
 const client = new Client({

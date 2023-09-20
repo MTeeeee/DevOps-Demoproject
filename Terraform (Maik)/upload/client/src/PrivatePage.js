@@ -1,16 +1,23 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-// import { useTheme } from '@mui/material/styles';
 import './App.css';
+
+const API_GATEWAY_URL = process.env.REACT_APP_API_GATEWAY_URL;
 
 function PrivatePage() {
     let { username } = useParams();
     const navigate = useNavigate();
-    // const theme = useTheme();
 
     const handleLogout = () => {
         navigate('/');
+    };
+
+    const handleApiGatewayClick = () => {
+        fetch(API_GATEWAY_URL)
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
     };
 
     return (
@@ -23,6 +30,9 @@ function PrivatePage() {
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                         <button className="button-custom, logout-button" onClick={handleLogout}>Ausloggen</button>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <button className="button-custom, login-button"onClick={() => handleApiGatewayClick()}>Launch DEV Environment</button>
                     </div>
                 </div>
             </div>
