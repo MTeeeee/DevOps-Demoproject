@@ -52,7 +52,10 @@ function Login() {
         <div>
             <div className="login-container">
                 <h2>Login</h2>
-                <form>
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    handleLogin();
+                }}>
                     <div>
                         <label className="input-label">
                             Benutzername:
@@ -74,11 +77,11 @@ function Login() {
                     </div>
                     <br />
                     <div>
-                        <button className="button" type="button" onClick={handleLogin}>Einloggen</button>
-                        <button className="button" onClick={() => navigate('/register')}>Zur Registrierung</button>
+                        <button className="button" type="submit">Einloggen</button>
+                        <button className="button" type="button" onClick={() => navigate('/register')}>Zur Registrierung</button>
                     </div>
                     <div>
-                        <button className="button" onClick={() => navigate('/')}>Startseite</button>
+                        <button className="button" type="button" onClick={() => navigate('/')}>Startseite</button>
                     </div>
                 </form>
             </div>

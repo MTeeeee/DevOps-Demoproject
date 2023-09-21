@@ -33,19 +33,14 @@ resource "aws_api_gateway_integration" "DevOps-Project-INTEGRATION" {
 
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = aws_lambda_function.MY_LAMBDA_FUNKTION.invoke_arn // WICHTIG MUSS GEÄNDERT WERDEN
+  uri                     = aws_lambda_function.Lambda_SSH_to_EC2.invoke_arn // WICHTIG MUSS GEÄNDERT WERDEN
 }
 
 resource "aws_lambda_permission" "APIGW_LAMBDA_PERMISSION" {
   statement_id  = "AllowAPIGatewayInvoke"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.MY_LAMBDA_FUNKTION.function_name // WICHTIG MUSS GEÄNDERT WERDEN
+  function_name = aws_lambda_function.Lambda_SSH_to_EC2.function_name // WICHTIG MUSS GEÄNDERT WERDEN
   principal     = "apigateway.amazonaws.com"
 
   source_arn = "${aws_api_gateway_rest_api.DevOps-Project-REST-API.execution_arn}/*/*"
 }
-
-output "invoke_url" {
-  value = "https://${aws_api_gateway_rest_api.DevOps-Project-REST-API.id}.execute-api.${var.aws_region}.amazonaws.com/dev/DevOps-Project-API-RESOURCE"
-}
-

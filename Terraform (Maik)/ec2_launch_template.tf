@@ -1,7 +1,7 @@
 # Create EC2 Launch Template for DevOps Project
 resource "aws_launch_template" "DevOps-Project-WebServer-Launch-Template" {
   name          = "DevOps-Project-WebServer-Launch-Template"
-  image_id      = "ami-0b9094fa2b07038b8"
+  image_id      = var.ec2_ami
   instance_type = "t2.micro"
   key_name      = "DevOps-Project-Key"
 
@@ -56,15 +56,17 @@ resource "aws_launch_template" "DevOps-Project-WebServer-Launch-Template" {
   }
 }
 
-# Create Network Interface and start EC2 Instance for PostgreSQL in DevOps Project
+##############################################################################################
+
+# Create Network Interface for EC2 Instance DevOps-Project-EC2-PostgreSQL
 resource "aws_network_interface" "DevOps-Project-EC2-PostgreSQL" {
   security_groups = [aws_security_group.DevOps-Project-SG.id]
   subnet_id       = aws_subnet.DevOps-Project-SubNet-1.id
 }
 
-# Create EC2 Instance DevOps-Project-EC2-PostgreSQL
+# Create EC2 Instance for DevOps-Project-EC2-PostgreSQL
 resource "aws_instance" "DevOps-Project-EC2-PostgreSQL" {
-  ami                  = "ami-0b9094fa2b07038b8"
+  ami                  = var.ec2_ami
   instance_type        = "t2.micro"
   key_name             = "DevOps-Project-Key"
   iam_instance_profile = aws_iam_instance_profile.ec2_iam_instance_profile.name
@@ -99,20 +101,17 @@ resource "aws_instance" "DevOps-Project-EC2-PostgreSQL" {
   }
 }
 
-# Output: Shows the Public IP from Postgres as Terminal Output
-output "postgresql_ip" {
-  value = aws_instance.DevOps-Project-EC2-PostgreSQL.public_ip
-}
+##############################################################################################
 
-# Create Network Interface and start EC2 Instance for Backend in DevOps Project
+# Create Network Interface for DevOps-Project-EC2-Backend
 resource "aws_network_interface" "DevOps-Project-EC2-Backend" {
   security_groups = [aws_security_group.DevOps-Project-SG.id]
   subnet_id       = aws_subnet.DevOps-Project-SubNet-1.id
 }
 
-# Create EC2 Instance for Backend
+# Create EC2 Instance for DevOps-Project-EC2-Backend
 resource "aws_instance" "DevOps-Project-EC2-Backend" {
-  ami                  = "ami-0b9094fa2b07038b8"
+  ami                  = var.ec2_ami
   instance_type        = "t2.micro"
   key_name             = "DevOps-Project-Key"
   iam_instance_profile = aws_iam_instance_profile.ec2_iam_instance_profile.name
@@ -147,6 +146,7 @@ resource "aws_instance" "DevOps-Project-EC2-Backend" {
     Environment = "dev"
   }
 
+  # Here starts for file upload via SSH
   provisioner "file" {
     source      = "./upload/"
     destination = "/home/ec2-user/"
@@ -158,17 +158,66 @@ resource "aws_instance" "DevOps-Project-EC2-Backend" {
     private_key = file(local_file.DevOps-Project-Key.filename)
     host        = self.public_ip
   }
+  # Here Ends for file upload via SSH
 }
 
-resource "local_file" "private_key" {
-  filename = "./keys/DevOps-Project-Key.pem"
-  content  = tls_private_key.RSA.private_key_pem
+##############################################################################################
+
+# Create Network Interface for EC2 Control Node Instance
+resource "aws_network_interface" "DevOps-Project-EC2-ControlNode" {
+  security_groups = [aws_security_group.DevOps-Project-SG.id]
+  subnet_id       = aws_subnet.DevOps-Project-SubNet-1.id
 }
 
-# Output: Shows the Public IP from Backend as Terminal Output
-output "backend_ip" {
-  value = aws_instance.DevOps-Project-EC2-Backend.public_ip
+# Create EC2 Instance DevOps-Project-EC2-ControlNode
+resource "aws_instance" "DevOps-Project-EC2-ControlNode" {
+  ami                  = var.ec2_ami_al2
+  instance_type        = "t2.micro"
+  key_name             = "DevOps-Project-Key"
+  iam_instance_profile = aws_iam_instance_profile.ec2_iam_instance_profile_cn.name
+
+  # user_data = filebase64("init-ec2-postgresql.sh")
+  user_data = base64encode(templatefile("init-ec2-controlnode.sh.tpl", {}))
+
+
+  root_block_device {
+    volume_size = 15
+    volume_type = "gp3"
+    iops        = 3000
+  }
+
+  network_interface {
+    network_interface_id = aws_network_interface.DevOps-Project-EC2-ControlNode.id
+    device_index         = 0
+  }
+
+  metadata_options {
+    http_endpoint               = "enabled"
+    http_put_response_hop_limit = 2
+    http_tokens                 = "optional"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name        = "DevOps-Project-EC2-ControlNode"
+    Terraform   = "true"
+    Environment = "dev"
+  }
+
+  # # Here starts for file upload via SSH
+  # provisioner "file" {
+  #   source      = "./keys/DevOps-Project-Key-Control-Node.pem"
+  #   destination = "/home/ec2-user/"
+  # }
+
+  # connection {
+  #   type        = "ssh"
+  #   user        = "ec2-user"
+  #   private_key = file(local_file.DevOps-Project-Key-Control-Node.filename)
+  #   host        = self.public_ip
+  # }
+  # # Here Ends for file upload via SSH
 }
-
-###############################################
-

@@ -51,7 +51,10 @@ function Register() {
         <div>
             <div className="login-container">
                 <h2>Registrierung</h2>
-                <form>
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    handleRegister();
+                }}>
                     <div>
                         <label className="input-label">
                             Benutzername:
@@ -73,11 +76,11 @@ function Register() {
                     </div>
                     <br />
                     <div>
-                        <button type="button" onClick={handleRegister}>SignUp</button>
-                        <button onClick={() => navigate('/login')}>Zurück zum Login</button>
+                        <button type="submit">SignUp</button>
+                        <button type="button" onClick={() => navigate('/login')}>Zurück zum Login</button>
                     </div>
                     <div>
-                    <button onClick={() => navigate('/')}>Startseite</button>
+                        <button type="button" onClick={() => navigate('/')}>Startseite</button>
                     </div>
                 </form>
             </div>
