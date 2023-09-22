@@ -19,6 +19,8 @@ resource "aws_lambda_function" "Lambda_SSH_to_EC2" {
     Terraform   = "true"
     Environment = "dev"
   }
+
+  #layers = [ aws_lambda_layer_version.Lambda_SSH_to_EC2_Requirements ]
 }
 
 # # Create Lambda Layer for Requirements
