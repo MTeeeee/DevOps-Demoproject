@@ -12,7 +12,7 @@ resource "aws_lambda_function" "Lambda_SSH_to_EC2" {
   }
 
   #filename = "./lambda/LambdaSSHtoEC2-Example-Funktion.zip"
-  filename = "./lambda/DevOps-Project-MyLambdaFunktion.zip"
+  filename = "./lambda/Lambda_SSH_to_EC2_Funktion.zip"
 
   tags = {
     Name        = "Lambda_SSH_to_EC2"
@@ -20,13 +20,14 @@ resource "aws_lambda_function" "Lambda_SSH_to_EC2" {
     Environment = "dev"
   }
 
-  #layers = [ aws_lambda_layer_version.Lambda_SSH_to_EC2_Requirements ]
+  layers = [ aws_lambda_layer_version.Lambda_SSH_to_EC2_Requirements.arn ]
 }
 
-# # Create Lambda Layer for Requirements
-# resource "aws_lambda_layer_version" "Lambda_SSH_to_EC2_Requirements" {
-#   layer_name          = "Lambda_SSH_to_EC2_Requirements"
-#   compatible_runtimes = ["python3.8"]
+# Create Lambda Layer for Requirements
+resource "aws_lambda_layer_version" "Lambda_SSH_to_EC2_Requirements" {
+  layer_name          = "Lambda_SSH_to_EC2_Requirements"
+  compatible_runtimes = ["python3.8"]
 
-#   filename = "./lambda/LambdaSSHtoEC2-Example-Requirements.zip"
-# }
+  #filename = "./lambda/LambdaSSHtoEC2-Example-Requirements.zip"
+  filename = "./lambda/Lambda_SSH_to_EC2_Layer.zip"
+}
