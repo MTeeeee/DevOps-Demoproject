@@ -4,6 +4,7 @@ resource "aws_lambda_function" "Lambda_SSH_to_EC2" {
   handler       = "lambda_function.lambda_handler"
   role          = aws_iam_role.lambda_iam_role.arn
   runtime       = "python3.7" 
+  timeout       = 25
 
   environment {
     variables = {
@@ -11,7 +12,6 @@ resource "aws_lambda_function" "Lambda_SSH_to_EC2" {
     }
   }
 
-  #filename = "./lambda/LambdaSSHtoEC2-Example-Funktion.zip"
   filename = "./lambda/Lambda_SSH_to_EC2_Funktion.zip"
 
   tags = {
@@ -28,6 +28,5 @@ resource "aws_lambda_layer_version" "Lambda_SSH_to_EC2_Requirements" {
   layer_name          = "Lambda_SSH_to_EC2_Requirements"
   compatible_runtimes = ["python3.8"]
 
-  #filename = "./lambda/LambdaSSHtoEC2-Example-Requirements.zip"
   filename = "./lambda/Lambda_SSH_to_EC2_Layer.zip"
 }

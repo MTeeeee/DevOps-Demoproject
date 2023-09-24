@@ -1,0 +1,35 @@
+Zuerst wird eine EC2 Instanz mit Amazon Linux 2 benötigt, 
+das Amazon Linux 2 Lambda am ähnlichsten ist.
+
+Nun loggen wir uns mit SSH auf diese Instanz drauf.
+
+"STRUKTUR - SEHR WICHTIG!"
+
+Für Python-Libraries in AWS Lambda Layern ist es empfohlen, 
+dass die Libraries innerhalb eines python Ordners liegen. 
+Das ist die Struktur, die Lambda erwartet, wenn der Layer 
+von einer Python-Lambda-Funktion verwendet wird.
+
+Das heißt, der Inhalt Ihrer layer.zip sollte so aussehen:
+
+layer.zip
+│
+└── python/
+    ├── Ordner-1/
+    ├── Ordner-2/
+    ├── Datei.xyz-1/
+    └── ... (andere Dateien und Verzeichnisse)
+	
+"JE NACH PROGRAMMIERSPRACHE BITTE DEN RICHTIGEN INITIAL ORDNER (Im Beispiel ist das "python") RAUSSUCHEN"
+
+So jetzt werden die Abhängigkeiten installiert. Nehmen wir 
+hier als Beispiel "paramiko"
+
+1.)	mkdir python
+2.) cd python
+3.)	pip3 install paramiko -t .
+4.) cd ..
+5.) zip -r layer.zip ./python/
+
+So das war es auch schon. Man kann auf diesem Wege Layer für Lambda mit nur einer Abhängigkeit wie in unserem
+Beispiel mit "paramiko" erstellen, oder aber auch alle Abhängigkeiten die man benötigt direkt komplett installieren.

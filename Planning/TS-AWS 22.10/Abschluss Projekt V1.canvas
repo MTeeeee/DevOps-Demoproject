@@ -24,7 +24,7 @@
 		{"type":"text","text":"<center>PostgreSQL Server</center>","id":"6183b4a35067110d","x":-327,"y":440,"width":171,"height":60,"color":"4"},
 		{"id":"0291f852e7322870","type":"text","text":"<center>Ansible starts EC2 Instance (Webserver & Datenbank)</center>","x":-548,"y":840,"width":250,"height":115},
 		{"id":"94964118ffab976d","type":"text","text":"<center>RETURN<br /> GitHub REPO URL / Timer / URL des WebServers & DB</center>","x":-548,"y":995,"width":250,"height":110},
-		{"id":"9e53dadbab69458e","type":"text","text":"<center>SSH to Ansible</center>","x":-166,"y":1540,"width":250,"height":60}
+		{"id":"9e53dadbab69458e","type":"text","text":"<center>SSH to Control Node to Start any Action</center>","x":-166,"y":1540,"width":250,"height":60,"color":"4"}
 	],
 	"edges":[
 		{"id":"4a238352e536f66f","fromNode":"0eda9eec37f572fd","fromSide":"bottom","toNode":"0d9304c09bc27a7d","toSide":"top","color":"4"},
@@ -61,9 +61,9 @@
 		{"id":"dbc1d14b6dc9323a","fromNode":"6183b4a35067110d","fromSide":"bottom","toNode":"1fcd4008e12f59da","toSide":"top","color":"4"},
 		{"id":"ad53422fe3ccccb2","fromNode":"c5ddfda021b81c8c","fromSide":"right","toNode":"0eda9eec37f572fd","toSide":"left","color":"4"},
 		{"id":"ac12045a553908e9","fromNode":"0eda9eec37f572fd","fromSide":"left","toNode":"c5ddfda021b81c8c","toSide":"right","color":"4"},
-		{"id":"6a0ce4066788de82","fromNode":"a2e3f69ce908f753","fromSide":"left","toNode":"9e53dadbab69458e","toSide":"right"},
-		{"id":"3cfd8d259060ab83","fromNode":"9e53dadbab69458e","fromSide":"top","toNode":"e81cc881702cd14e","toSide":"bottom"},
-		{"id":"fa5c448173cfd8e4","fromNode":"e81cc881702cd14e","fromSide":"bottom","toNode":"0291f852e7322870","toSide":"top"},
+		{"id":"6a0ce4066788de82","fromNode":"a2e3f69ce908f753","fromSide":"left","toNode":"9e53dadbab69458e","toSide":"right","color":"3"},
+		{"id":"3cfd8d259060ab83","fromNode":"9e53dadbab69458e","fromSide":"top","toNode":"e81cc881702cd14e","toSide":"bottom","color":"4"},
+		{"id":"fa5c448173cfd8e4","fromNode":"e81cc881702cd14e","fromSide":"bottom","toNode":"0291f852e7322870","toSide":"top","color":"4"},
 		{"id":"86fc5b53c40de849","fromNode":"0291f852e7322870","fromSide":"bottom","toNode":"94964118ffab976d","toSide":"top"},
 		{"id":"eebca47be333ccd5","fromNode":"94964118ffab976d","fromSide":"right","toNode":"6ea6c47fc20f392d","toSide":"left","label":"< E-Mail Versand >"}
 	]
