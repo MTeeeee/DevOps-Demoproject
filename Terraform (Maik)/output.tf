@@ -5,7 +5,13 @@ output "DevOps-Project-Public-ALB" {
 
 # Output: Shows URL from REST API Gateway
 output "invoke_url" {
-  value = "https://${aws_api_gateway_rest_api.DevOps-Project-REST-API.id}.execute-api.${var.aws_region}.amazonaws.com/dev/DevOps-Project-API-RESOURCE"
+  #value = "https://${aws_api_gateway_rest_api.DevOps-Project-REST-API.id}.execute-api.${var.aws_region}.amazonaws.com/dev/DevOps-Project-API-RESOURCE"
+  value = "https://${aws_api_gateway_rest_api.DevOps-Project-REST-API.id}.execute-api.${var.aws_region}.amazonaws.com/dev/DevOps-Project-REST-API/starting" #MAIK
+}
+
+# Output: Shows the URL of the new endpoint in the REST API gateway.
+output "fetch_data_invoke_url" {
+  value = "https://${aws_api_gateway_rest_api.DevOps-Project-REST-API.id}.execute-api.${var.aws_region}.amazonaws.com/dev/DevOps-Project-REST-API/getdata" #MAIK
 }
 
 # Output: Shows the Public IP from Postgres as Terminal Output

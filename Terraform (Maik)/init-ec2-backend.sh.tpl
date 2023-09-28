@@ -6,7 +6,9 @@ set -x
 
 # Create "ip_from_postgres.js" with IP and Export from PostgreSQL for Backend Server
 echo -e "const ip = \"${ip_address_postgresql}\";\nexports.ip = ip;" > /home/ec2-user/ip_from_postgres.js
-echo -e "REACT_APP_API_GATEWAY_URL=\"${API_GATEWAY_URL}\"" > /home/ec2-user/client/.env
+echo -e "REACT_APP_API_GET_START=\"${API_GET_START}\"" >> /home/ec2-user/client/.env
+echo -e "REACT_APP_API_GET_DATA=\"${API_GET_DATA}\"" >> /home/ec2-user/client/.env
+#echo -e "REACT_APP_API_GET_START=\"${API_GET_START}\"" > /home/ec2-user/client/.env
 
 # EC2 Update
 sudo yum update -y
@@ -32,7 +34,7 @@ sleep 300
 # API_GATEWAY_URL="$(terraform output -raw invoke_url)"
 
 # Update the .env file
-# echo "REACT_APP_API_GATEWAY_URL=$API_GATEWAY_URL" > .env
+# echo "REACT_APP_API_GET_START=$API_GATEWAY_URL" > .env
 
 # Build Website Frontend
 cd /home/ec2-user/client/src/ 

@@ -5,6 +5,11 @@ variable "aws_region" {
   default = "eu-central-1"
 }
 
+variable "aws_user_id" {
+  type = string
+  default = "[565180539983_Student]"
+}
+
 variable "aws_access_key_id" {
   type = string
 }
@@ -21,10 +26,4 @@ variable "aws_session_token" {
 variable "ec2_ami" {
   type = string
   default = "ami-01342111f883d5e4e"
-}
-
-# AMI (Amazon Linux 2 AMI (HVM)
-variable "ec2_ami_al2" {
-  type = string
-  default = "ami-0f845a2bba44d24b2"
 }

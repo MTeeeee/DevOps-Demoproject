@@ -1,0 +1,6 @@
+ansible-playbook network.yml &&
+ansible-playbook security_groups.yml &&
+ansible-playbook ec2_instance.yml &&
+ansible-playbook sql_db.yml
+
+ansible-playbook cleanup_playbook.yml

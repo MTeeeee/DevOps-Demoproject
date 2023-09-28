@@ -158,3 +158,25 @@ html {
   height: 40px;
   width: 180px;
 }
+
+.inactive-color {
+  background-color: grey;
+}
+
+.fetched-color {
+  background-color: red;
+}
+
+.active-color {
+  background-color: green;
+}
+
+.ssh-data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  font-size: 20px;
+  text-align: center;
+  white-space: pre-wrap;
+}

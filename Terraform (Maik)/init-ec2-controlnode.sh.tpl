@@ -12,8 +12,49 @@ sudo yum install yum-utils -y
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 sudo yum install terraform -y
 
-# Install Ansible
-sudo amazon-linux-extras install ansible2 -y
+# Python
+sudo yum install python3.11 -y
+sudo yum install python-pip -y
+
+# Dependencies (boto & boto3 & passlib)
+pip3 install boto boto3
+pip3 install passlib
+
+# Install Ansible (NOT FOR AMAZON LINUX 2)
+pip install ansible
+
+# Reinstall Ansible AWS Collection
+sudo ansible-galaxy collection install amazon.aws --force
+
+# Reinstall Ansible Community Collection
+sudo ansible-galaxy collection install community.aws --force
+
+# Create AWS Credentials
+mkdir /home/ec2-user/.aws
+touch /home/ec2-user/.aws/credentials
+
+# Copies the Content of the variables to ~/.aws/credentials
+echo "${user_id}" >> /home/ec2-user/.aws/credentials
+echo "aws_access_key_id=${access_key_id}" >> /home/ec2-user/.aws/credentials
+echo "aws_secret_access_key=${secret_access_key}" >> /home/ec2-user/.aws/credentials
+echo "aws_session_token=${session_token}" >> /home/ec2-user/.aws/credentials
+
+# Change ownership to AWS Credentials
+sudo chown ec2-user:ec2-user /home/ec2-user/.aws
+sudo chown ec2-user:ec2-user /home/ec2-user/.aws/credentials
+
+# Ansible Variables
+echo "target_subnet: ${subnet}" >> /home/ec2-user/ansible_vars
+
+# AWS Cloud Control Collection for Ansible
+ansible-galaxy collection install amazon.aws
+sudo -u ec2-user ansible-galaxy collection install amazon.aws
+
+# Change ownership to File for Ansible Variables
+sudo chown ec2-user:ec2-user /home/ec2-user/ansible_vars
+
+# Change Rights for Key File
+sudo chmod 400 /home/ec2-user/keys/Ansible-DEV-Envirement.pem
 
 # Installiere und aktiviere "CRON"
 sudo yum install cronie -y

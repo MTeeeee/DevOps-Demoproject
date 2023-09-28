@@ -26,6 +26,18 @@ resource "local_file" "DevOps-Project-Key-Control-Node" {
   filename = "${path.module}/keys/DevOps-Project-Key-Control-Node.pem"
 }
 
+# Creates an SSH Public Key for Ansible DEV Envirement.
+resource "aws_key_pair" "Ansible-DEV-Envirement" {
+  key_name   = "Ansible-DEV-Envirement"
+  public_key = tls_private_key.RSA.public_key_openssh
+}
+
+# Create / Save SSH Private Key File Local for Ansible DEV Envirement.
+resource "local_file" "Ansible-DEV-Envirement" {
+  content  = tls_private_key.RSA.private_key_pem
+  filename = "${path.module}/keys/Ansible-DEV-Envirement.pem"
+}
+
 # RSA key of size 4096 bits
 resource "tls_private_key" "RSA" {
   algorithm = "RSA"

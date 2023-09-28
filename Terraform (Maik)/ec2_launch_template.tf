@@ -117,7 +117,11 @@ resource "aws_instance" "DevOps-Project-EC2-Backend" {
   iam_instance_profile = aws_iam_instance_profile.ec2_iam_instance_profile.name
 
   #depends_on = [aws_instance.DevOps-Project-EC2-PostgreSQL]
-  user_data = base64encode(templatefile("init-ec2-backend.sh.tpl", { ip_address_postgresql = aws_instance.DevOps-Project-EC2-PostgreSQL.public_ip, API_GATEWAY_URL = "https://${aws_api_gateway_rest_api.DevOps-Project-REST-API.id}.execute-api.${var.aws_region}.amazonaws.com/dev/DevOps-Project-API-RESOURCE" }))
+  # user_data = base64encode(templatefile("init-ec2-backend.sh.tpl", { ip_address_postgresql = aws_instance.DevOps-Project-EC2-PostgreSQL.public_ip, API_GATEWAY_URL = "https://${aws_api_gateway_rest_api.DevOps-Project-REST-API.id}.execute-api.${var.aws_region}.amazonaws.com/dev/DevOps-Project-API-RESOURCE" }))
+  user_data = base64encode(templatefile("init-ec2-backend.sh.tpl", { 
+    ip_address_postgresql = aws_instance.DevOps-Project-EC2-PostgreSQL.public_ip, 
+    API_GET_START = "https://${aws_api_gateway_rest_api.DevOps-Project-REST-API.id}.execute-api.${var.aws_region}.amazonaws.com/dev/DevOps-Project-REST-API/starting",
+    API_GET_DATA  = "https://${aws_api_gateway_rest_api.DevOps-Project-REST-API.id}.execute-api.${var.aws_region}.amazonaws.com/dev/DevOps-Project-REST-API/getdata" }))
 
   root_block_device {
     volume_size = 15
@@ -171,13 +175,20 @@ resource "aws_network_interface" "DevOps-Project-EC2-ControlNode" {
 
 # Create EC2 Instance DevOps-Project-EC2-ControlNode
 resource "aws_instance" "DevOps-Project-EC2-ControlNode" {
-  ami                  = var.ec2_ami_al2
+  ami                  = var.ec2_ami
   instance_type        = "t2.micro"
   key_name             = "DevOps-Project-Key"
   iam_instance_profile = aws_iam_instance_profile.ec2_iam_instance_profile_cn.name
 
   # user_data = filebase64("init-ec2-postgresql.sh")
-  user_data = base64encode(templatefile("init-ec2-controlnode.sh.tpl", {}))
+  user_data = base64encode(templatefile("init-ec2-controlnode.sh.tpl", {
+    aws_region        = var.aws_region
+    subnet            = aws_subnet.DevOps-Project-SubNet-1.id
+    user_id           = var.aws_user_id
+    access_key_id     = var.aws_access_key_id
+    secret_access_key = var.aws_secret_access_key
+    session_token     = var.aws_session_token
+  }))
 
 
   root_block_device {
@@ -207,17 +218,23 @@ resource "aws_instance" "DevOps-Project-EC2-ControlNode" {
     Environment = "dev"
   }
 
-  # # Here starts for file upload via SSH
-  # provisioner "file" {
-  #   source      = "./keys/DevOps-Project-Key-Control-Node.pem"
-  #   destination = "/home/ec2-user/"
-  # }
+  # Here starts first for file upload via SSH
+  provisioner "file" {
+    source      = "./ansible/"
+    destination = "/home/ec2-user/"
+  }
 
-  # connection {
-  #   type        = "ssh"
-  #   user        = "ec2-user"
-  #   private_key = file(local_file.DevOps-Project-Key-Control-Node.filename)
-  #   host        = self.public_ip
-  # }
-  # # Here Ends for file upload via SSH
+    # Here starts second for file upload via SSH
+  provisioner "file" {
+    source      = "./keys/Ansible-DEV-Envirement.pem"
+    destination = "/home/ec2-user/keys/Ansible-DEV-Envirement.pem"
+  }
+
+  connection {
+    type        = "ssh"
+    user        = "ec2-user"
+    private_key = file(local_file.DevOps-Project-Key-Control-Node.filename)
+    host        = self.public_ip
+  }
+  # Here Ends for file upload via SSH
 }
