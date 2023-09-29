@@ -16,7 +16,7 @@
     - name: Finde EC2 Instanz basierend auf dem Namen
       amazon.aws.ec2_instance_info:
         filters:
-          "tag:Name": MeinEC2_{{ random_id }}
+          "tag:Name": DevEC2_{{ random_id }}
           instance-state-name: running
         region: eu-central-1
       register: ec2_info
@@ -38,7 +38,7 @@
     - name: Rufe VPC Informationen ab
       amazon.aws.ec2_vpc_net_info:
         filters:
-          "tag:Name": MeinVPC_{{ random_id }}
+          "tag:Name": DevVPC_{{ random_id }}
         region: eu-central-1
       register: vpc_info
 
@@ -51,13 +51,13 @@
       amazon.aws.ec2_vpc_route_table:
         vpc_id: "{{ vpc_info.vpcs[0].id }}"
         tags:
-          Name: MeineRouteTable_{{ random_id }}
+          Name: DevRouteTable_{{ random_id }}
         state: absent
         region: eu-central-1
 
     - name: Lösche Security Group für EC2
       amazon.aws.ec2_group:
-        name: MeinSG_{{ random_id }}
+        name: DevSG_{{ random_id }}
         state: absent
         region: eu-central-1
 
@@ -85,16 +85,16 @@
         vpc_id: "{{ vpc_info.vpcs[0].vpc_id }}"
         region: eu-central-1
         tags:
-          Name: MeinIGW_{{ random_id }}
+          Name: DevIGW_{{ random_id }}
         state: absent
 
     - name: Lösche VPC
       amazon.aws.ec2_vpc_net:
-        name: MeinVPC_{{ random_id }}
+        name: DevVPC_{{ random_id }}
         cidr_block: 10.0.0.0/16
         region: eu-central-1
         tags:
-          Name: MeinVPC_{{ random_id }}
+          Name: DevVPC_{{ random_id }}
         state: absent
 
     - name: Lösche die random_id Datei

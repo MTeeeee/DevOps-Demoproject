@@ -11,11 +11,23 @@ function PrivatePage() {
     let { username } = useParams();
     const navigate = useNavigate();
     const [responseMessage, setResponseMessage] = useState('');
-    const [isError, setIsError] = useState(false);  // Zustand hinzufügen, um festzustellen, ob es sich um eine Fehlermeldung handelt
+    const [isError, setIsError] = useState(false);
     const [isButtonActive, setIsButtonActive] = useState(false);
     const [sshData, setSshData] = useState('');
     const [hasDataBeenFetched, setHasDataBeenFetched] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [hasEnvStarted, setHasEnvStarted] = useState(false);
 
+    useEffect(() => {
+        let timer;
+        if (hasEnvStarted && !isButtonActive) {
+            timer = setTimeout(() => {
+                setIsButtonActive(true);
+            }, 180000);
+        }
+    
+        return () => clearTimeout(timer);
+    }, [hasEnvStarted]);
 
 
     const handleLogout = () => {
@@ -23,6 +35,9 @@ function PrivatePage() {
     };
 
     const handleApiGatewayClick = () => {
+        setIsLoading(true);
+        setHasEnvStarted(true);
+
         fetch(API_GET_START)
             .then(response => response.json())
             .then(data => {
@@ -33,24 +48,21 @@ function PrivatePage() {
                     setResponseMessage(data.error);
                     setIsError(true);
                 }
+                setIsLoading(false);
             })
             .catch(error => {
                 console.error('Error:', error);
                 setResponseMessage("Es ist ein Fehler beim Abrufen der Daten aufgetreten.");
                 setIsError(true);
+                setIsLoading(false);
             });
 
-        // Timer starten, um den anderen Button nach 3 Minuten zu aktivieren
-        const timer = setTimeout(() => {
-            setIsButtonActive(true);
-        }, 120000);
 
-        // Es ist wichtig, den Timer zu löschen, wenn die Komponente unmountet wird.
-        // Daher geben wir eine Cleanup-Funktion zurück.
-        return () => clearTimeout(timer);
     };
 
     const handleApiDataClick = () => {
+        setIsLoading(true);
+
         fetch(API_GET_DATA)
             .then(response => response.json())
             .then(data => {
@@ -60,18 +72,21 @@ function PrivatePage() {
                     if (data.ssh_data) {
                         setSshData(data.ssh_data);
                     }
+                    setHasDataBeenFetched(true);
                 } else if (data.error) {
                     setResponseMessage(data.error);
                     setIsError(true);
                 }
+                setIsLoading(false);
             })
             .catch(error => {
                 console.error('Error:', error);
                 setResponseMessage("Es ist ein Fehler beim Abrufen der Daten aufgetreten.");
                 setIsError(true);
+                setIsLoading(false);
             });
-        setHasDataBeenFetched(true);
     };
+
 
     return (
         <div>
@@ -80,25 +95,36 @@ function PrivatePage() {
                     <div style={{ textAlign: 'center', color: 'black' }}>
                         <h2>Hallo, {username}</h2>
                         <h3>Willkommen im Userbereich</h3>
+                        <h3>
+                            Bitte beachte, dass der Start der Umgebung bis zu 5 Minuten dauern kann.<br />
+                            Wenn alles bereit ist, wird der Button „Zugangsdaten abrufen“ grün.<br />
+                            Aber Achtung, die Daten können nur einmal abgerufen.<br />
+                            Danach verschwindet der Button. Zur Sicherheit werden die Zugangsdaten<br />
+                            aber nochmal in einem Slack Channel gepostet (https://slack.com/)<br />
+
+                            Bei Problemen bitte einen Admin kontaktieren. Viel Spass<br />
+                        </h3>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <button className="button-custom, logout-button" onClick={handleLogout}>Ausloggen</button>
+                        <button className="button-custom logout-button" onClick={handleLogout}>Ausloggen</button>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <button className="button-custom, login-button" onClick={handleApiGatewayClick}>Launch DEV Environment</button>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                        <button
-                            className={`button-custom login-button ${hasDataBeenFetched ? 'fetched-color' : isButtonActive ? 'active-color' : 'inactive-color'}`}
-                            onClick={handleApiDataClick}
-                            disabled={!isButtonActive}
-                        >
-                            Daten Abrufen
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <button className="button-custom login-button" onClick={handleApiGatewayClick}>
+                            Entwicklungsumgebung Starten
                         </button>
                     </div>
-                    {/* <div>
-                        <p style={{ color: 'red', fontWeight: 'bold' }}>Achtung:<br /> Der Button "Daten Abrufen"<br /> wird erst nach 2 Minuten nach dem<br /> Klick auf "Launch DEV Env." aktiv!<br /> Button wird dann "GRÜN"</p>
-                    </div> */}
+                    {!hasDataBeenFetched && (
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '10px' }}>
+                            <button
+                                className={`button-custom login-button ${hasDataBeenFetched ? 'fetched-color' : isButtonActive ? 'active-color' : 'inactive-color'}`}
+                                onClick={handleApiDataClick}
+                                disabled={!isButtonActive}
+                            >
+                                Zugangsdaten Abrufen
+                            </button>
+                            {isLoading && <p className="blinking-text">Bitte Warten...</p>}
+                        </div>
+                    )}
                 </div>
             </div>
             <div className="message">

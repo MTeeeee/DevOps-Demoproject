@@ -40,11 +40,11 @@
 
     - name: Erstelle ein VPC
       amazon.aws.ec2_vpc_net:
-        name: MeinVPC_{{ random_id }}
+        name: DevVPC_{{ random_id }}
         cidr_block: 10.0.0.0/16
         region: eu-central-1
         tags:
-          Name: MeinVPC_{{ random_id }}
+          Name: DevVPC_{{ random_id }}
       register: vpc
 
     - name: Erstelle Internet Gateway
@@ -52,7 +52,7 @@
         vpc_id: "{{ vpc.vpc.id }}"
         region: eu-central-1
         tags:
-          Name: MeinIGW_{{ random_id }}
+          Name: DevIGW_{{ random_id }}
       register: internet_gateway
 
     - name: Erstelle ein Subnetz
@@ -62,7 +62,7 @@
         az: eu-central-1a
         region: eu-central-1
         tags:
-          Name: MeinSubnetz_{{ random_id }}
+          Name: DevSubnet_{{ random_id }}
         map_public: yes
       register: subnet
 
@@ -71,7 +71,7 @@
         vpc_id: "{{ vpc.vpc.id }}"
         region: eu-central-1
         tags:
-          Name: MeineRouteTable_{{ random_id }}
+          Name: DevRouteTable_{{ random_id }}
         subnets:
           - "{{ subnet.subnet.id }}"
         routes:
@@ -81,8 +81,8 @@
 
     - name: Erstelle Security Group für EC2
       amazon.aws.ec2_group:
-        name: MeinSG_{{ random_id }}
-        description: Security Group fuer MeinEC2
+        name: DevSG_{{ random_id }}
+        description: Security Group fuer DevEC2
         vpc_id: "{{ vpc.vpc.id }}"
         region: eu-central-1
         rules:
@@ -98,7 +98,7 @@
     # Erstelle EC2 Instanz
     - name: Erstelle EC2 Instanz
       amazon.aws.ec2_instance:
-        name: MeinEC2_{{ random_id }}
+        name: DevEC2_{{ random_id }}
         instance_type: t2.micro
         image_id: ami-01342111f883d5e4e
         wait: yes
@@ -109,7 +109,7 @@
         security_group: "{{ security_group.group_name }}"
         region: eu-central-1
         tags:
-          Name: MeinEC2_{{ random_id }}
+          Name: DevEC2_{{ random_id }}
         user_data: |
           #!/bin/bash
           echo "ec2-user:{{ ec2_user_password }}" | chpasswd 2>&1 > /tmp/chpasswd.log

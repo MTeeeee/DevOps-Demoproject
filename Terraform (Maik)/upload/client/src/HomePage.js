@@ -9,14 +9,16 @@ function HomePage() {
         <div className="login-container">
             <div>
                 <div style={{ textAlign: 'center', color: 'black' }}>
-                    <h1>Hallo liebe Firmen</h1>
+                    <h1>Hallo liebe Gäste</h1>
                     <h2>
-                        Willkommen beim Abschluss Projekt von Maik & Mete
+                        Willkommen beim Abschluss Projekt von Maik, Mete & Thomas
                         <br />
-                        Thema: Terraform mit AWS Services
+                        Thema: Mit Terraform und Ansible eine AWS Infrastruktur aufbauen.<br />
+                        Es soll den Web Developern ermöglichen eine eigene Entwicklungsumgebung<br />
+                        für Ihre Projekte mit nur wenigen Klicks starten zu können.<br />
                     </h2>
                     <p>
-                        Man benötigt einen Login um weiter zu kommen<br />
+                        Wichtig: Man benötigt einen Login um weiter zu kommen<br />
                         Diesen kann man sich einfach ohne viel hin und her mit einem<br />
                         Klick auf "Registrieren" erstellen. (Es wird nichts dazu benötigt)
                     </p>
