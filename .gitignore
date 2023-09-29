@@ -7,22 +7,12 @@ Planning/Day Planners/
 
 # TERRAFORM
 # git rm --cached -r '.\Terraform (Maik)\'
-WebSite.zip
-WebSite/
+
 Terraform (Maik)/.Notes.txt
 Terraform (Maik)/.terraform/
 Terraform (Maik)/.terraform.lock.hcl
 Terraform (Maik)/terraform.tfstate
 Terraform (Maik)/terraform.tfstate.backup
-Terraform (Maik)/variable.auto.tfvars
-
-*Terraform (Maik - DEV)/*
-
-Terraform (Maik - DEV)/.terraform/
-Terraform (Maik - DEV)/.terraform.lock.hcl
-Terraform (Maik - DEV)/terraform.tfstate
-Terraform (Maik - DEV)/terraform.tfstate.backup
-Terraform (Maik - DEV)/variable.auto.tfvars
 
 # git rm --cached -r '.\Terraform (Mete)\'
 Terraform (Mete)/basic/.terraform/
