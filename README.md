@@ -13,20 +13,20 @@ The developer can set up the development environment as he needs it.
 You can see the setup of the infrastructure in the screenshot.
 
 **Created the following AWS services in the region "eu-central-1":**
-**Network 1:** 
->"VPC, Subnets, Internet Gateway & Routing Tables"
-**Load Balancer:** 
->"Application Load Balancer"
+**Network 1:** <br />
+"VPC, Subnets, Internet Gateway & Routing Tables"<br />
+**Load Balancer:** <br />
+"Application Load Balancer"<br />
 **EC2 Instances (started via a launch template):** 
->5 Instances, "Backend", "PostgreSQL DB", "Control Node" and "2x Frontend"
+5 Instances, "Backend", "PostgreSQL DB", "Control Node" and "2x Frontend"
 **Auto Scaling Group:** 
->Autoscalinggroup scales the frontend which is a React app running on a NGINX web server
+Autoscalinggroup scales the frontend which is a React app running on a NGINX web server
 **Amazon Cloudwatch Alarme:**
->2 Alarms: ScaleIN @ >80% CPU or ScaleOUT @ 20% CPU
+2 Alarms: ScaleIN @ >80% CPU or ScaleOUT @ 20% CPU
 **API Gateway:**
->To control function calls via the REACT app
+To control function calls via the REACT app
 **AWS Lambda:**
->2 Lambda Funktions
+2 Lambda Funktions
 
 **Network 2:**
 "VPC, Subnets, Internet Gateway & Routing Tables"
