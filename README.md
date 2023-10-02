@@ -58,7 +58,7 @@ terraform validate
 terraform plan
 terraform apply
 ```
-**Screenshots from Infrastructure**
+**Graphical representation of Infrastructure**
 
 ![Alt text](/DevOps-Project/images/DevOps-Project.png?raw=true "DevOps-Project")
 ![Alt text](/DevOps-Project/images/Dev-Environment.png?raw=true "Dev Environment")
