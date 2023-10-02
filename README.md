@@ -12,33 +12,33 @@ The development environment is located in its own network and is not connected t
 
 The developer can set up the development environment as he needs it.
 
-You can see the setup of the infrastructure in the screenshot (bottom).
+##You can see the setup of the infrastructure in the screenshot (bottom).
 
-**Created the following AWS services in the region "eu-central-1":**
-**Network 1:** <br />
+#**Created the following AWS services in the region "eu-central-1":**
+##**Network 1:** <br />
 _"VPC, Subnets, Internet Gateway & Routing Tables"_<br />
-**Load Balancer:** <br />
+###**Load Balancer:** <br />
 _"Application Load Balancer"_<br />
-**EC2 Instances (started via a launch template):** <br />
+###**EC2 Instances (started via a launch template):** <br />
 _5 Instances, "Backend", "PostgreSQL DB", "Control Node" and "2x Frontend"_<br />
-**Auto Scaling Group:** <br />
+###**Auto Scaling Group:** <br />
 _Autoscalinggroup scales the frontend which is a React app running on a NGINX web server_<br />
-**Amazon Cloudwatch Alarme:**<br />
+###**Amazon Cloudwatch Alarme:**<br />
 _2 Alarms: ScaleIN @ >80% CPU or ScaleOUT @ 20% CPU_<br />
-**API Gateway:**<br />
+###**API Gateway:**<br />
 _To control function calls via the REACT app_<br />
-**S3 Buckets:**
+###**S3 Buckets:**
 _2 Pieces (for log files & build files from frontend)_
-**AWS Lambda:**<br />
-2 Lambda Funktions with Layers<br />
+###**AWS Lambda:**<br />
+_2 Lambda Funktions with Layers<br />_
 
-**Network 2:**<br />
+###**Network 2:**<br />
 _"VPC, Subnets, Internet Gateway & Routing Tables"_<br />
-**EC2 Instances (is started and configured entirely via Ansible.):**<br />
+###**EC2 Instances (is started and configured entirely via Ansible.):**<br />
 _1 Instance_<br />
 
 
-Steps for using this Project:
+##Steps for using this Project:
 
 In File "variable.auto.tfvars" insert your AWS Credentials:
 ```
@@ -56,7 +56,7 @@ terraform validate
 terraform plan
 terraform apply
 ```
-**Screenshots from Infrastructure**
+#**Screenshots from Infrastructure**
 
 ![Alt text](/DevOps-Project/images/DevOps-Project.png?raw=true "DevOps-Project")
 ![Alt text](/DevOps-Project/images/Dev-Environment.png?raw=true "Dev Environment")
