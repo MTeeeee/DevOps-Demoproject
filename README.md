@@ -22,9 +22,8 @@ Install Terraform (https://developer.hashicorp.com/)
 On Terminal navigate to Project Folder.
 and use this commands in order.
 ```
-"terraform init"
-"terraform validate"
-"terraform plan"
-"terraform apply"
+terraform init
+terraform validate
+terraform plan
+terraform apply
 ```
-(all Commands without Quotes)
