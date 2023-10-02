@@ -30,7 +30,7 @@ _To control function calls via the REACT app_<br />
 **S3 Buckets:**
 _2 Pieces (for log files & build files from frontend)_
 **AWS Lambda:**<br /> 
-_2 Lambda Functions with Layers<br /> _
+_2 Lambda Functions with Layers<br />_
 
 **Network 2:**<br /> 
 _"VPC, Subnets, Internet Gateway & Routing Tables"_<br /> 
