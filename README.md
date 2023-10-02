@@ -8,6 +8,8 @@ The purpose behind this is that e.g. web developers can easily start up a
 development environment to test their projects.
 The environment can be configured as desired after creation.
 
+The development environment is located in its own network and is not connected to the initial infrastructure
+
 The developer can set up the development environment as he needs it.
 
 You can see the setup of the infrastructure in the screenshot.
