@@ -12,7 +12,7 @@ The development environment is located in its own network and is not connected t
 
 The developer can set up the development environment as he needs it.
 
-You can see the setup of the infrastructure in the screenshot.
+You can see the setup of the infrastructure in the screenshot (bottom).
 
 **Created the following AWS services in the region "eu-central-1":**
 **Network 1:** <br />
