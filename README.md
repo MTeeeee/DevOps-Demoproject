@@ -14,7 +14,7 @@ You can see the setup of the infrastructure in the screenshot.
 
 **Created the following AWS services in the region "eu-central-1":**
 **Network 1:** 
-"VPC, Subnets, Internet Gateway & Routing Tables"
+-"VPC, Subnets, Internet Gateway & Routing Tables"
 **Load Balancer:** 
 "Application Load Balancer"
 **EC2 Instances (started via a launch template):** 
