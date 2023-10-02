@@ -27,6 +27,8 @@ _Autoscalinggroup scales the frontend which is a React app running on a NGINX we
 _2 Alarms: ScaleIN @ >80% CPU or ScaleOUT @ 20% CPU_<br />
 **API Gateway:**<br />
 _To control function calls via the REACT app_<br />
+**S3 Buckets:**
+_2 Pieces (for log files & build files from frontend)_
 **AWS Lambda:**<br />
 2 Lambda Funktions with Layers<br />
 
