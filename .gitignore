@@ -1,43 +1,13 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,node,windows,joe
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,python,node,windows,joe
 
-# CUSTOM OBSIDIAN EXCLUDE
-Planning/.obsidian/
-Planning/Day Planners/
-
 # TERRAFORM
-# git rm --cached -r '.\Terraform (Maik)\'
+# git rm --cached -r FOLDER (when Errors)
 
-Terraform (Maik)/.Notes.txt
-Terraform (Maik)/.terraform/
-Terraform (Maik)/.terraform.lock.hcl
-Terraform (Maik)/terraform.tfstate
-Terraform (Maik)/terraform.tfstate.backup
-
-# git rm --cached -r '.\Terraform (Mete)\'
-Terraform (Mete)/basic/.terraform/
-Terraform (Mete)/basic/.terraform.lock.hcl
-Terraform (Mete)/basic/terraform.tfstate
-Terraform (Mete)/basic/terraform.tfstate.backup
-Terraform (Mete)/basic/variable.auto.tfvars
-
-Terraform (Mete)/ecs/.terraform/
-Terraform (Mete)/ecs/.terraform.lock.hcl
-Terraform (Mete)/ecs/terraform.tfstate
-Terraform (Mete)/ecs/terraform.tfstate.backup
-Terraform (Mete)/ecs/variable.auto.tfvars
-
-Terraform (Mete)/eks/.terraform/
-Terraform (Mete)/eks/.terraform.lock.hcl
-Terraform (Mete)/eks/terraform.tfstate
-Terraform (Mete)/eks/terraform.tfstate.backup
-Terraform (Mete)/eks/variable.auto.tfvars
-
-Terraform (Mete)/Sandbox/.terraform/
-Terraform (Mete)/Sandbox/.terraform.lock.hcl
-Terraform (Mete)/Sandbox/terraform.tfstate
-Terraform (Mete)/Sandbox/terraform.tfstate.backup
-Terraform (Mete)/Sandbox/variable.auto.tfvars
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
 
 
 ### Joe ###

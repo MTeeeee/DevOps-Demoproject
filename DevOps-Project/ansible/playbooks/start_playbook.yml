@@ -141,3 +141,21 @@
     #     module: file
     #     path: /tmp/passwortdatei.txt
     #     state: absent
+
+    - name: Slack Notification
+      community.general.slack:
+        token: T05UYPUNWUQ/B05U9NH1T7V/SjmbvgcEFPHihN8bF1zlV96f
+        msg: |
+          ### DEV Environment with ID "{{ random_id }}" IS READY!! ###
+          --------------------------------------
+          "Public IP: {{ ec2.instances[0].public_ip_address }}"
+          "User ID: {{ random_id }}"
+          "Username: ec2-user"
+          "Password: {{ ec2_user_password }}"
+          --------------------------------------
+        channel: '#abschlussprojekt'
+        #channel: '#devops-project'
+        color: good
+        link_names: 0
+        parse: 'none'
+      ignore_errors: true
