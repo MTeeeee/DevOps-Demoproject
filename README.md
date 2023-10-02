@@ -18,20 +18,20 @@ _"VPC, Subnets, Internet Gateway & Routing Tables"_<br />
 **Load Balancer:** <br />
 _"Application Load Balancer"_<br />
 **EC2 Instances (started via a launch template):** <br />
-5 Instances, "Backend", "PostgreSQL DB", "Control Node" and "2x Frontend"<br />
+_5 Instances, "Backend", "PostgreSQL DB", "Control Node" and "2x Frontend"_<br />
 **Auto Scaling Group:** <br />
-Autoscalinggroup scales the frontend which is a React app running on a NGINX web server<br />
+_Autoscalinggroup scales the frontend which is a React app running on a NGINX web server_<br />
 **Amazon Cloudwatch Alarme:**<br />
-2 Alarms: ScaleIN @ >80% CPU or ScaleOUT @ 20% CPU<br />
+_2 Alarms: ScaleIN @ >80% CPU or ScaleOUT @ 20% CPU_<br />
 **API Gateway:**<br />
-To control function calls via the REACT app<br />
+_To control function calls via the REACT app_<br />
 **AWS Lambda:**<br />
-2 Lambda Funktions<br />
+I<br />
 
 **Network 2:**<br />
-"VPC, Subnets, Internet Gateway & Routing Tables"<br />
+_"VPC, Subnets, Internet Gateway & Routing Tables"_<br />
 **EC2 Instances (is started and configured entirely via Ansible.):**<br />
-1 Instance<br />
+_1 Instance_<br />
 
 
 Steps for using this Project:
