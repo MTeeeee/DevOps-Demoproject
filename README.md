@@ -26,7 +26,7 @@ _2 Alarms: ScaleIN @ >80% CPU or ScaleOUT @ 20% CPU_<br />
 **API Gateway:**<br />
 _To control function calls via the REACT app_<br />
 **AWS Lambda:**<br />
-I<br />
+2 Lambda Funktions with Layers<br />
 
 **Network 2:**<br />
 _"VPC, Subnets, Internet Gateway & Routing Tables"_<br />
