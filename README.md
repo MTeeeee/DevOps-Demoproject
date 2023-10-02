@@ -15,7 +15,7 @@ The developer can set up the development environment as he needs it.
 You can see the setup of the infrastructure in the screenshot (bottom).
 
 **Created the following AWS services in the region "eu-central-1":**<br /> 
-- [!NOTE]**Network 1 (DevOps-Project):** <br /> 
+- [!NOTE] **Network 1 (DevOps-Project):** <br /> 
 _"VPC, Subnets, Internet Gateway & Routing Tables"_<br /> 
 - **Load Balancer:** <br /> 
 _"Application Load Balancer"_<br /> 
@@ -34,7 +34,7 @@ _2 Lambda Functions with Layers<br />_
 
 
 
-- [!NOTE]**Network 2 (Dev Environment):**<br /> 
+- [!NOTE] **Network 2 (Dev Environment):**<br /> 
 _"VPC, Subnets, Internet Gateway & Routing Tables"_<br /> 
 - **EC2 Instances (is started and configured entirely via Ansible.):**<br /> 
 _1 Instance_<br /> 
