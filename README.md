@@ -14,24 +14,24 @@ You can see the setup of the infrastructure in the screenshot.
 
 **Created the following AWS services in the region "eu-central-1":**
 **Network 1:** <br />
-"VPC, Subnets, Internet Gateway & Routing Tables"<br />
+_"VPC, Subnets, Internet Gateway & Routing Tables"_<br />
 **Load Balancer:** <br />
-"Application Load Balancer"<br />
-**EC2 Instances (started via a launch template):** 
-5 Instances, "Backend", "PostgreSQL DB", "Control Node" and "2x Frontend"
-**Auto Scaling Group:** 
-Autoscalinggroup scales the frontend which is a React app running on a NGINX web server
-**Amazon Cloudwatch Alarme:**
-2 Alarms: ScaleIN @ >80% CPU or ScaleOUT @ 20% CPU
-**API Gateway:**
-To control function calls via the REACT app
-**AWS Lambda:**
-2 Lambda Funktions
+_"Application Load Balancer"_<br />
+**EC2 Instances (started via a launch template):** <br />
+5 Instances, "Backend", "PostgreSQL DB", "Control Node" and "2x Frontend"<br />
+**Auto Scaling Group:** <br />
+Autoscalinggroup scales the frontend which is a React app running on a NGINX web server<br />
+**Amazon Cloudwatch Alarme:**<br />
+2 Alarms: ScaleIN @ >80% CPU or ScaleOUT @ 20% CPU<br />
+**API Gateway:**<br />
+To control function calls via the REACT app<br />
+**AWS Lambda:**<br />
+2 Lambda Funktions<br />
 
-**Network 2:**
-"VPC, Subnets, Internet Gateway & Routing Tables"
-**EC2 Instances (is started and configured entirely via Ansible.):**
-1 Instance
+**Network 2:**<br />
+"VPC, Subnets, Internet Gateway & Routing Tables"<br />
+**EC2 Instances (is started and configured entirely via Ansible.):**<br />
+1 Instance<br />
 
 
 Steps for using this Project:
