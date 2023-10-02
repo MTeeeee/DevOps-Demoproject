@@ -15,9 +15,9 @@ The developer can set up the development environment as he needs it.
 You can see the setup of the infrastructure in the screenshot (bottom).
 
 **Created the following AWS services in the region "eu-central-1":**<br /> 
-**Network 1:** <br /> 
+- **Network 1:** <br /> 
 _"VPC, Subnets, Internet Gateway & Routing Tables"_<br /> 
-**Load Balancer:** <br /> 
+- **Load Balancer:** <br /> 
 _"Application Load Balancer"_<br /> 
 **EC2 Instances (started via a launch template):** <br /> 
 _5 Instances, "Backend", "PostgreSQL DB", "Control Node" and "2x Frontend"_<br /> 
